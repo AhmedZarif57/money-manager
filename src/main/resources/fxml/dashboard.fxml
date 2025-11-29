@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/8"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="dashboardRoot"
+            styleClass="dashboard-root">
+
+    <!-- SIDEBAR (loaded separately if needed) -->
+    <left>
+        <AnchorPane fx:id="sidebarContainer" prefWidth="220"/>
+    </left>
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <VBox spacing="25" styleClass="dashboard-content" alignment="TOP_LEFT" padding="25">
+
+            <!-- PAGE TITLE -->
+            <Label text="Dashboard" styleClass="page-title"/>
+
+            <!-- SUMMARY CARDS (Income / Expense / Balance) -->
+            <HBox spacing="20">
+                <!-- Income Card -->
+                <VBox styleClass="summary-card" alignment="CENTER_LEFT" spacing="10" prefWidth="240" prefHeight="120">
+                    <Label text="Total Income" styleClass="card-title"/>
+                    <Label fx:id="incomeValue" text="$0.00" styleClass="card-value"/>
+                </VBox>
+
+                <!-- Expense Card -->
+                <VBox styleClass="summary-card" alignment="CENTER_LEFT" spacing="10" prefWidth="240" prefHeight="120">
+                    <Label text="Total Expense" styleClass="card-title"/>
+                    <Label fx:id="expenseValue" text="$0.00" styleClass="card-value"/>
+                </VBox>
+
+                <!-- Balance Card -->
+                <VBox styleClass="summary-card" alignment="CENTER_LEFT" spacing="10" prefWidth="240" prefHeight="120">
+                    <Label text="Net Balance" styleClass="card-title"/>
+                    <Label fx:id="balanceValue" text="$0.00" styleClass="card-value"/>
+                </VBox>
+            </HBox>
+
+            <!-- RECENT TRANSACTIONS TITLE -->
+            <Label text="Recent Transactions" styleClass="section-title"/>
+
+            <!-- TRANSACTIONS TABLE -->
+            <TableView fx:id="recentTransactionsTable" prefHeight="300" styleClass="table-dark">
+
+                <columns>
+                    <TableColumn text="Date" prefWidth="120"/>
+                    <TableColumn text="Category" prefWidth="140"/>
+                    <TableColumn text="Type" prefWidth="100"/>
+                    <TableColumn text="Account" prefWidth="140"/>
+                    <TableColumn text="Amount" prefWidth="120"/>
+                </columns>
+
+            </TableView>
+
+        </VBox>
+    </center>
+
+</BorderPane>

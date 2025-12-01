@@ -39,11 +39,11 @@
         <TableView fx:id="categoryBudgetTable" prefHeight="450" styleClass="table-dark">
 
             <columns>
-                <TableColumn text="Category" prefWidth="200"/>
-                <TableColumn text="Allocated" prefWidth="150"/>
-                <TableColumn text="Spent" prefWidth="150"/>
-                <TableColumn text="Remaining" prefWidth="150"/>
-                <TableColumn text="Status" prefWidth="150"/>
+                <TableColumn fx:id="categoryColumn" text="Category" prefWidth="200"/>
+                <TableColumn fx:id="allocatedColumn" text="Allocated" prefWidth="150"/>
+                <TableColumn fx:id="spentColumn" text="Spent" prefWidth="150"/>
+                <TableColumn fx:id="remainingColumn" text="Remaining" prefWidth="150"/>
+                <TableColumn fx:id="statusColumn" text="Status" prefWidth="150"/>
             </columns>
 
         </TableView>

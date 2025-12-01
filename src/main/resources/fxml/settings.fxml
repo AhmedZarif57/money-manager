@@ -7,70 +7,36 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:id="settingsRoot"
+            fx:id="settingRoot"
             prefWidth="1000" prefHeight="700"
-            styleClass="settings-root">
+            styleClass="setting-root">
 
-    <VBox spacing="25" layoutX="20" layoutY="20" prefWidth="960">
+    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 
         <!-- PAGE TITLE -->
-        <Label text="Settings" styleClass="page-title"/>
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Settings" styleClass="page-title"/>
+        </HBox>
 
-        <!-- PROFILE SETTINGS CARD -->
-        <VBox spacing="15" padding="20" styleClass="settings-card">
-            <Label text="Profile" styleClass="card-title"/>
-
+        <!-- SETTINGS OPTIONS -->
+        <VBox spacing="15">
             <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Username:" styleClass="settings-label"/>
-                <TextField fx:id="usernameField" promptText="Enter username" prefWidth="250"/>
+                <Label text="Currency:" styleClass="setting-label"/>
+                <ComboBox fx:id="cmbCurrency" prefWidth="150"/>
             </HBox>
-
             <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Email:" styleClass="settings-label"/>
-                <TextField fx:id="emailField" promptText="Enter email" prefWidth="250"/>
+                <Label text="Theme:" styleClass="setting-label"/>
+                <ComboBox fx:id="cmbTheme" prefWidth="150"/>
             </HBox>
-
-            <Button fx:id="btnSaveProfile" text="Save" styleClass="save-btn"/>
+            <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Notifications:" styleClass="setting-label"/>
+                <CheckBox fx:id="chkNotifications"/>
+            </HBox>
         </VBox>
 
-        <!-- APP PREFERENCES CARD -->
-        <VBox spacing="15" padding="20" styleClass="settings-card">
-            <Label text="Preferences" styleClass="card-title"/>
+        <Pane VBox.vgrow="ALWAYS"/>
 
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Dark Theme" styleClass="settings-label"/>
-                <CheckBox fx:id="toggleTheme" />
-            </HBox>
-
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Enable Notifications" styleClass="settings-label"/>
-                <CheckBox fx:id="toggleNotifications" />
-            </HBox>
-
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Auto Backup" styleClass="settings-label"/>
-                <CheckBox fx:id="toggleBackup" />
-            </HBox>
-
-            <Button fx:id="btnSavePreferences" text="Save Preferences" styleClass="save-btn"/>
-        </VBox>
-
-        <!-- SECURITY CARD -->
-        <VBox spacing="15" padding="20" styleClass="settings-card">
-            <Label text="Security" styleClass="card-title"/>
-
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Change Password" styleClass="settings-label"/>
-                <Button fx:id="btnChangePassword" text="Change" styleClass="secondary-btn"/>
-            </HBox>
-
-            <HBox spacing="15" alignment="CENTER_LEFT">
-                <Label text="Two Factor Authentication" styleClass="settings-label"/>
-                <CheckBox fx:id="toggle2FA"/>
-            </HBox>
-
-            <Button fx:id="btnSaveSecurity" text="Update Security" styleClass="save-btn"/>
-        </VBox>
+        <Button fx:id="btnSaveSettings" text="Save Settings" styleClass="save-btn"/>
 
     </VBox>
 

@@ -6,9 +6,9 @@
 }
 
 /* ------------------------------------------------------
-   SUMMARY CARDS
+   DASHBOARD CARDS
 ------------------------------------------------------ */
-.summary-card {
+.dashboard-card {
     -fx-background-color: #141720;
     -fx-background-radius: 14;
     -fx-padding: 18;
@@ -28,30 +28,11 @@
 }
 
 /* ------------------------------------------------------
-   RECENT TRANSACTIONS TABLE
+   CHART AREA
 ------------------------------------------------------ */
-.table-dark {
+.chart-area {
     -fx-background-color: #141720;
-    -fx-control-inner-background: #141720;
-    -fx-padding: 10;
-}
-
-.table-dark .column-header-background {
-    -fx-background-color: #10131a;
-}
-
-.table-dark .column-header .label {
-    -fx-text-fill: #d6d6d6;
-}
-
-.table-row-cell {
-    -fx-background-color: #141720;
-}
-
-.table-row-cell:hover {
-    -fx-background-color: #1b1f2a;
-}
-
-.table-row-cell:selected {
-    -fx-background-color: #263143;
+    -fx-background-radius: 14;
+    -fx-border-color: #202636;
+    -fx-border-radius: 14;
 }

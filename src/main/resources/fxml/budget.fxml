@@ -13,39 +13,21 @@
 
     <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 
-        <!-- TITLE & BUTTON -->
+        <!-- PAGE TITLE + ADD BUTTON -->
         <HBox alignment="CENTER_LEFT" spacing="20">
-            <Label text="Budget" styleClass="page-title"/>
+            <Label text="Budgets" styleClass="page-title"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="btnAddBudget" text="Set Budget" styleClass="add-btn"/>
+            <Button fx:id="btnAddBudget" text="Add Budget" styleClass="add-btn"/>
         </HBox>
 
-        <!-- BUDGET SUMMARY CARD -->
-        <VBox spacing="12" prefWidth="300" prefHeight="130" styleClass="budget-card">
-            <Label text="Monthly Budget" styleClass="card-title"/>
-            <Label fx:id="totalBudgetValue" text="$0.00" styleClass="card-value"/>
-
-            <ProgressBar fx:id="budgetProgress" prefWidth="260" progress="0.4" styleClass="budget-progress"/>
-
-            <HBox spacing="10">
-                <Label text="Remaining:" styleClass="small-label"/>
-                <Label fx:id="remainingBudgetValue" text="$0.00" styleClass="remaining-value"/>
-            </HBox>
-        </VBox>
-
-        <!-- CATEGORY BUDGET TABLE -->
-        <Label text="Category Budgets" styleClass="section-title"/>
-
-        <TableView fx:id="categoryBudgetTable" prefHeight="450" styleClass="table-dark">
-
+        <!-- BUDGET TABLE -->
+        <TableView fx:id="budgetTable" prefHeight="600" styleClass="table-dark">
             <columns>
                 <TableColumn text="Category" prefWidth="200"/>
-                <TableColumn text="Allocated" prefWidth="150"/>
-                <TableColumn text="Spent" prefWidth="150"/>
-                <TableColumn text="Remaining" prefWidth="150"/>
-                <TableColumn text="Status" prefWidth="150"/>
+                <TableColumn text="Limit" prefWidth="120"/>
+                <TableColumn text="Spent" prefWidth="120"/>
+                <TableColumn text="Remaining" prefWidth="120"/>
             </columns>
-
         </TableView>
 
     </VBox>

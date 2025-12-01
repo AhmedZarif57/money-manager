@@ -3,34 +3,32 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
 
-<BorderPane xmlns="http://javafx.com/javafx/16"
+<AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
             fx:id="mainRoot"
-            prefWidth="1200" prefHeight="800"
+            prefWidth="1000" prefHeight="700"
             styleClass="main-root">
 
-    <!-- SIDEBAR AREA -->
-    <left>
-        <VBox fx:id="sidebar" prefWidth="220" spacing="15" styleClass="sidebar">
+    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 
-            <Label text="Money Manager" styleClass="sidebar-title" VBox.margin="15,0,0,20"/>
+        <!-- PAGE TITLE -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Money Manager" styleClass="page-title"/>
+        </HBox>
 
+        <!-- DASHBOARD NAVIGATION -->
+        <HBox spacing="15" alignment="CENTER_LEFT" styleClass="nav-bar">
             <Button fx:id="btnDashboard" text="Dashboard" styleClass="nav-btn"/>
             <Button fx:id="btnTransactions" text="Transactions" styleClass="nav-btn"/>
             <Button fx:id="btnBudget" text="Budget" styleClass="nav-btn"/>
             <Button fx:id="btnSettings" text="Settings" styleClass="nav-btn"/>
+        </HBox>
 
-            <Pane VBox.vgrow="ALWAYS"/>
+        <!-- MAIN CONTENT AREA -->
+        <StackPane fx:id="mainContent" prefHeight="580" styleClass="content-area"/>
 
-            <Button fx:id="btnLogout" text="Logout" styleClass="logout-btn"/>
+    </VBox>
 
-        </VBox>
-    </left>
-
-    <!-- MAIN CONTENT AREA -->
-    <center>
-        <AnchorPane fx:id="contentArea" styleClass="content-area"/>
-    </center>
-
-</BorderPane>
+</AnchorPane>

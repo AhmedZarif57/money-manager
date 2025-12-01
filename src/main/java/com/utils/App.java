@@ -10,18 +10,20 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // Load the FXML file you want to preview
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/com/example/moneymanager/Dashboard.fxml"));
-        Parent root = fxmlLoader.load();
 
-        // Create scene and apply CSS files
-        Scene scene = new Scene(root, 1000, 700);
-        scene.getStylesheets().addAll(
-                getClass().getResource("/com/example/moneymanager/css/styles.css").toExternalForm(),
-                getClass().getResource("/com/example/moneymanager/css/dashboard.css").toExternalForm()
+        // Load your FXML correctly
+        FXMLLoader fxmlLoader = new FXMLLoader(
+                getClass().getResource("/fxml/budget.fxml")
         );
 
-        // Set stage
+        Parent root = fxmlLoader.load();
+
+        // Apply CSS
+        Scene scene = new Scene(root, 1000, 700);
+        scene.getStylesheets().addAll(
+                getClass().getResource("/css/styles.css").toExternalForm()
+        );
+
         stage.setTitle("Money Manager Preview");
         stage.setScene(scene);
         stage.show();

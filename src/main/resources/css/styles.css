@@ -149,6 +149,7 @@
     -fx-background-radius: 12;
     -fx-padding: 20;
     -fx-border-color: #1f2330;
+    -fx-border-width: 1;
     -fx-border-radius: 12;
 }
 

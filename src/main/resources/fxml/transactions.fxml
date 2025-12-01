@@ -10,6 +10,8 @@
             fx:id="transactionsRoot"
             prefWidth="1000" prefHeight="700"
             styleClass="transactions-root">
+            styleClass="transactions-root"
+            fx:controller="com.controller.TransactionsController">
 
     <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 
@@ -47,6 +49,12 @@
                 <TableColumn text="Account" prefWidth="150"/>
                 <TableColumn text="Amount" prefWidth="120"/>
                 <TableColumn text="Note" prefWidth="200"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+                <TableColumn fx:id="categoryColumn" text="Category" prefWidth="150"/>
+                <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                <TableColumn fx:id="accountColumn" text="Account" prefWidth="150"/>
+                <TableColumn fx:id="amountColumn" text="Amount" prefWidth="120"/>
+                <TableColumn fx:id="noteColumn" text="Note" prefWidth="200"/>
             </columns>
 
         </TableView>

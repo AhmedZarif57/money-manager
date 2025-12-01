@@ -7,6 +7,13 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controller.DashboardController"
             fx:id="dashboardRoot"
             prefWidth="1000" prefHeight="700"
             styleClass="dashboard-root">
@@ -38,6 +45,43 @@
         <VBox VBox.vgrow="ALWAYS">
             <StackPane fx:id="dashboardChart" styleClass="chart-area" prefHeight="450" prefWidth="960"/>
         </VBox>
+    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="730">
+
+        <!-- PAGE TITLE -->
+        <Label text="Dashboard" styleClass="page-title"/>
+
+        <!-- SUMMARY CARDS -->
+        <HBox spacing="20">
+
+            <VBox spacing="10" prefWidth="200" prefHeight="110" styleClass="summary-card">
+                <Label text="Total Income" styleClass="card-title"/>
+                <Label fx:id="incomeValue" text="$0.00" styleClass="card-value"/>
+            </VBox>
+
+            <VBox spacing="10" prefWidth="200" prefHeight="110" styleClass="summary-card">
+                <Label text="Total Expense" styleClass="card-title"/>
+                <Label fx:id="expenseValue" text="$0.00" styleClass="card-value"/>
+            </VBox>
+
+            <VBox spacing="10" prefWidth="200" prefHeight="110" styleClass="summary-card">
+                <Label text="Net Balance" styleClass="card-title"/>
+                <Label fx:id="balanceValue" text="$0.00" styleClass="card-value"/>
+            </VBox>
+
+        </HBox>
+
+        <!-- RECENT TRANSACTIONS -->
+        <Label text="Recent Transactions" styleClass="section-title"/>
+
+        <TableView fx:id="recentTable" prefHeight="350" styleClass="table-dark">
+            <columns>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+                <TableColumn fx:id="categoryColumn" text="Category" prefWidth="150"/>
+                <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                <TableColumn fx:id="accountColumn" text="Account" prefWidth="150"/>
+                <TableColumn fx:id="amountColumn" text="Amount" prefWidth="120"/>
+            </columns>
+        </TableView>
 
     </VBox>
 

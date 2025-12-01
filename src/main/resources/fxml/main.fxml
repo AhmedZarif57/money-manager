@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+
+<BorderPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controller.MainController"
+            fx:id="mainRoot"
+            prefWidth="1200" prefHeight="800"
+            styleClass="main-root">
+
+    <!-- SIDEBAR AREA -->
+    <left>
+        <VBox fx:id="sidebar" prefWidth="220" spacing="15" styleClass="sidebar">
+
+            <Label text="Money Manager" styleClass="sidebar-title">
+                <VBox.margin>
+                    <Insets top="15" bottom="0" left="0" right="20"/>
+                </VBox.margin>
+            </Label>
+
+            <Button fx:id="btnDashboard" text="Dashboard" styleClass="nav-btn"/>
+            <Button fx:id="btnTransactions" text="Transactions" styleClass="nav-btn"/>
+            <Button fx:id="btnBudget" text="Budget" styleClass="nav-btn"/>
+            <Button fx:id="btnSettings" text="Settings" styleClass="nav-btn"/>
+
+            <Pane VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="btnLogout" text="Logout" styleClass="logout-btn"/>
+
+        </VBox>
+    </left>
+
+    <!-- MAIN CONTENT AREA -->
+    <center>
+        <AnchorPane fx:id="contentArea" styleClass="content-area"/>
+    </center>
+
+</BorderPane>

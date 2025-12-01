@@ -164,6 +164,7 @@
     -fx-background-color: #141720;
     -fx-background-radius: 12;
     -fx-border-color: #202636;
+    -fx-border-width: 1;
     -fx-padding: 15;
 }
 

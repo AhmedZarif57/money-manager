@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:id="budgetRoot"
+            prefWidth="1000" prefHeight="700"
+            styleClass="budget-root">
+
+    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
+
+        <!-- PAGE TITLE + ADD BUTTON -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Budgets" styleClass="page-title"/>
+            <Pane HBox.hgrow="ALWAYS"/>
+            <Button fx:id="btnAddBudget" text="Add Budget" styleClass="add-btn"/>
+        </HBox>
+
+        <!-- BUDGET TABLE -->
+        <TableView fx:id="budgetTable" prefHeight="600" styleClass="table-dark">
+            <columns>
+                <TableColumn text="Category" prefWidth="200"/>
+                <TableColumn text="Limit" prefWidth="120"/>
+                <TableColumn text="Spent" prefWidth="120"/>
+                <TableColumn text="Remaining" prefWidth="120"/>
+            </columns>
+        </TableView>
+
+    </VBox>
+
+</AnchorPane>

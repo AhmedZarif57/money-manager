@@ -9,7 +9,8 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:id="transactionsRoot"
             prefWidth="1000" prefHeight="700"
-            styleClass="transactions-root">
+            styleClass="transactions-root"
+            fx:controller="com.controller.TransactionsController">
 
     <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 

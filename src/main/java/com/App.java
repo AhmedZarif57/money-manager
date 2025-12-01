@@ -4,7 +4,7 @@ public void start(Stage stage) throws Exception {
     Scene scene = new Scene(root);
 
     scene.getStylesheets().addAll(
-            getClass().getResource("/css/app.css").toExternalForm(),
+            getClass().getResource("/css/styles.css").toExternalForm(),
             getClass().getResource("/css/dashboard.css").toExternalForm()
     );
 

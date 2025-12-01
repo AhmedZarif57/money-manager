@@ -1,0 +1,171 @@
+/* ------------------------------------------------------
+   GLOBAL DARK BACKGROUND
+------------------------------------------------------ */
+.root {
+    -fx-background-color: #0d0f15;
+    -fx-font-family: "Segoe UI", sans-serif;
+}
+
+/* ------------------------------------------------------
+   PAGE TITLES
+------------------------------------------------------ */
+.page-title {
+    -fx-text-fill: #ffffff;
+    -fx-font-size: 26px;
+    -fx-font-weight: bold;
+}
+
+/* ------------------------------------------------------
+   BUTTONS
+------------------------------------------------------ */
+.add-btn, .save-btn, .nav-btn, .clear-btn {
+    -fx-background-color: #1b1f2a;
+    -fx-text-fill: #00eaff;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-background-radius: 10;
+    -fx-cursor: hand;
+    -fx-padding: 6 12 6 12;
+}
+
+.add-btn:hover, .save-btn:hover, .nav-btn:hover, .clear-btn:hover {
+    -fx-background-color: #263143;
+}
+
+/* ------------------------------------------------------
+   TABLES
+------------------------------------------------------ */
+.table-dark {
+    -fx-background-color: #141720;
+    -fx-control-inner-background: #141720;
+    -fx-padding: 10;
+}
+
+.table-dark .column-header-background {
+    -fx-background-color: #10131a;
+}
+
+.table-dark .column-header .label {
+    -fx-text-fill: #0077cc; /* Dark blue text for headers */
+    -fx-font-weight: bold;
+}
+
+.table-row-cell {
+    -fx-background-color: #141720;
+    -fx-text-fill: #00eaff; /* Sky blue text for table rows */
+}
+
+.table-row-cell:hover {
+    -fx-background-color: #1b1f2a;
+}
+
+.table-row-cell:selected {
+    -fx-background-color: #263143;
+}
+
+/* ------------------------------------------------------
+   FILTER BAR
+------------------------------------------------------ */
+.filter-bar {
+    -fx-background-color: #141720;
+    -fx-padding: 10;
+    -fx-background-radius: 10;
+}
+
+.filter-label {
+    -fx-text-fill: #d6d6d6;
+    -fx-font-size: 14px;
+}
+
+/* ------------------------------------------------------
+   DASHBOARD / BUDGET CARDS
+------------------------------------------------------ */
+.dashboard-card, .budget-card, .summary-card {
+    -fx-background-color: #141720;
+    -fx-background-radius: 14;
+    -fx-padding: 18;
+    -fx-border-color: #202636;
+    -fx-border-radius: 14;
+}
+
+.card-title {
+    -fx-text-fill: #9aa0a6;
+    -fx-font-size: 14px;
+}
+
+.card-value {
+    -fx-text-fill: #00eaff;
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+}
+
+/* ------------------------------------------------------
+   CHART AREAS
+------------------------------------------------------ */
+.chart-area {
+    -fx-background-color: #141720;
+    -fx-background-radius: 14;
+    -fx-border-color: #202636;
+    -fx-border-radius: 14;
+}
+
+/* ------------------------------------------------------
+   SETTINGS
+------------------------------------------------------ */
+.setting-label {
+    -fx-text-fill: #d6d6d6;
+    -fx-font-size: 14px;
+}
+
+/* ------------------------------------------------------
+   INPUT FIELDS (TextField, ComboBox, DatePicker)
+------------------------------------------------------ */
+.text-field, .combo-box, .date-picker {
+    -fx-background-color: #1b1f2a;       /* dark background */
+    -fx-text-fill: #00eaff;              /* sky blue text */
+    -fx-prompt-text-fill: #00bfff;       /* lighter blue placeholder */
+    -fx-border-color: #202636;
+    -fx-border-radius: 8;
+    -fx-background-radius: 8;
+    -fx-highlight-fill: #00eaff;         /* selection background */
+    -fx-highlight-text-fill: #0d0f15;    /* selected text color */
+    -fx-cursor: text;
+}
+
+/* ComboBox dropdown items */
+.combo-box .list-cell {
+    -fx-background-color: #1b1f2a;
+    -fx-text-fill: #00eaff;
+}
+
+.combo-box .list-cell:hover {
+    -fx-background-color: #263143;
+}
+
+/* ------------------------------------------------------
+   NAVIGATION BUTTONS
+------------------------------------------------------ */
+.nav-btn {
+    -fx-background-color: #1b1f2a;
+    -fx-text-fill: #00eaff;
+    -fx-font-weight: bold;
+    -fx-background-radius: 8;
+}
+
+.nav-btn:hover {
+    -fx-background-color: #263143;
+}
+
+/* ------------------------------------------------------
+   BUDGET SPECIFIC LABELS
+------------------------------------------------------ */
+.budget-label {
+    -fx-text-fill: #0077cc; /* dark blue text for Category, Limit, Spent, Remaining */
+}
+
+/* ------------------------------------------------------
+   TRANSACTIONS TABLE HEADERS
+------------------------------------------------------ */
+.transactions-header {
+    -fx-text-fill: #0077cc; /* dark blue text for Date, Category, Type, Account, Amount, Note */
+}

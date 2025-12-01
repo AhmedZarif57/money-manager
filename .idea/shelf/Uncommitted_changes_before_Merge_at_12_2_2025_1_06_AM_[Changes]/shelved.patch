@@ -1,0 +1,711 @@
+Index: src/main/java/com/utils/App.java
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>package com.utils;\r\n\r\nimport javafx.application.Application;\r\nimport javafx.fxml.FXMLLoader;\r\nimport javafx.scene.Parent;\r\nimport javafx.scene.Scene;\r\nimport javafx.stage.Stage;\r\n\r\npublic class App extends Application {\r\n\r\n    @Override\r\n    public void start(Stage stage) throws Exception {\r\n\r\n        // Load your FXML correctly\r\n        FXMLLoader fxmlLoader = new FXMLLoader(\r\n                getClass().getResource(\"/fxml/budget.fxml\")\r\n        );\r\n\r\n        Parent root = fxmlLoader.load();\r\n\r\n        // Apply CSS\r\n        Scene scene = new Scene(root, 1000, 700);\r\n        scene.getStylesheets().addAll(\r\n                getClass().getResource(\"/css/styles.css\").toExternalForm()\r\n        );\r\n\r\n        stage.setTitle(\"Money Manager Preview\");\r\n        stage.setScene(scene);\r\n        stage.show();\r\n    }\r\n\r\n    public static void main(String[] args) {\r\n        launch();\r\n    }\r\n}\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/src/main/java/com/utils/App.java b/src/main/java/com/utils/App.java
+--- a/src/main/java/com/utils/App.java	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
++++ b/src/main/java/com/utils/App.java	(date 1764615984572)
+@@ -11,24 +11,32 @@
+     @Override
+     public void start(Stage stage) throws Exception {
+ 
+-        // Load your FXML correctly
++        // Load the main FXML view
+         FXMLLoader fxmlLoader = new FXMLLoader(
+-                getClass().getResource("/fxml/budget.fxml")
++                getClass().getResource("/fxml/dashboard.fxml")
+         );
+ 
+         Parent root = fxmlLoader.load();
+ 
+-        // Apply CSS
++        // Create scene and apply custom CSS styling
+         Scene scene = new Scene(root, 1000, 700);
+         scene.getStylesheets().addAll(
+                 getClass().getResource("/css/styles.css").toExternalForm()
+         );
+ 
+-        stage.setTitle("Money Manager Preview");
++        // Configure and display the main window
++        stage.setTitle("Money Manager - Personal Finance Tracker");
+         stage.setScene(scene);
++        stage.setResizable(true);
++        stage.setMinWidth(800);
++        stage.setMinHeight(600);
+         stage.show();
+     }
+ 
++    /**
++     * Application entry point
++     * @param args command line arguments
++     */
+     public static void main(String[] args) {
+         launch();
+     }
+Index: .idea/modules.xml
+===================================================================
+diff --git a/.idea/modules.xml b/.idea/modules.xml
+deleted file mode 100644
+--- a/.idea/modules.xml	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
++++ /dev/null	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
+@@ -1,8 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<project version="4">
+-  <component name="ProjectModuleManager">
+-    <modules>
+-      <module fileurl="file://$PROJECT_DIR$/.idea/money-manager.iml" filepath="$PROJECT_DIR$/.idea/money-manager.iml" />
+-    </modules>
+-  </component>
+-</project>
+\ No newline at end of file
+Index: .idea/money-manager.iml
+===================================================================
+diff --git a/.idea/money-manager.iml b/.idea/money-manager.iml
+deleted file mode 100644
+--- a/.idea/money-manager.iml	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
++++ /dev/null	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
+@@ -1,13 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8"?>
+-<module type="JAVA_MODULE" version="4">
+-  <component name="NewModuleRootManager" inherit-compiler-output="true">
+-    <exclude-output />
+-    <content url="file://$MODULE_DIR$">
+-      <sourceFolder url="file://$MODULE_DIR$/src/main/java" isTestSource="false" />
+-      <sourceFolder url="file://$MODULE_DIR$/src/main/resources" type="java-resource" />
+-    </content>
+-    <orderEntry type="inheritedJdk" />
+-    <orderEntry type="sourceFolder" forTests="false" />
+-    <orderEntry type="library" name="javafx-base" level="project" />
+-  </component>
+-</module>
+\ No newline at end of file
+Index: .idea/encodings.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/encodings.xml b/.idea/encodings.xml
+new file mode 100644
+--- /dev/null	(date 1764615984563)
++++ b/.idea/encodings.xml	(date 1764615984563)
+@@ -0,0 +1,7 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="Encoding">
++    <file url="file://$PROJECT_DIR$/src/main/java" charset="UTF-8" />
++    <file url="file://$PROJECT_DIR$/src/main/resources" charset="UTF-8" />
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/jarRepositories.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/jarRepositories.xml b/.idea/jarRepositories.xml
+new file mode 100644
+--- /dev/null	(date 1764615984564)
++++ b/.idea/jarRepositories.xml	(date 1764615984564)
+@@ -0,0 +1,20 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="RemoteRepositoriesConfiguration">
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Central Repository" />
++      <option name="url" value="https://repo.maven.apache.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="central" />
++      <option name="name" value="Maven Central repository" />
++      <option name="url" value="https://repo1.maven.org/maven2" />
++    </remote-repository>
++    <remote-repository>
++      <option name="id" value="jboss.community" />
++      <option name="name" value="JBoss Community repository" />
++      <option name="url" value="https://repository.jboss.org/nexus/content/repositories/public/" />
++    </remote-repository>
++  </component>
++</project>
+\ No newline at end of file
+Index: docs/readme.md
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+># Money Manager - JavaFX\r\n\r\nA modern, multi-user personal finance tracker built with JavaFX.\r\n\r\n## Features\r\n- User authentication (login/signup)\r\n- Multi-account support (Wallet, Bank, Mobile Banking)\r\n- Income, Expense, and Transfer transactions\r\n- Statistics and charts (Pie, Bar, Line charts)\r\n- JSON-based data persistence\r\n- Beautiful, modern UI with Ikonli icons\r\n\r\n## Team Members\r\n- Zarif (Leader, UI Integration)\r\n- Akif (Backend Developer)\r\n- Mushfiq (UI Developer)\r\n- Hemonto (Services & Data Persistence)\r\n- Rafi (Assets & Testing)\r\n\r\n## Project Structure\r\n- `src/models/` - Data models (User, Account, Transaction, etc.)\r\n- `src/services/` - Business logic (Auth, Ledger, File I/O)\r\n- `src/controllers/` - JavaFX controllers\r\n- `resources/fxml/` - FXML view files\r\n- `resources/css/` - Styling\r\n- `resources/data/` - JSON data files\r\n\r\n## Setup & Run\r\n1. Clone the repo\r\n2. Open in IntelliJ IDEA\r\n3. Run `Main.java`\r\n\r\n## Tech Stack\r\n- Java 11+\r\n- JavaFX 21\r\n- Ikonli (for icons)\r\n- JSON (via Gson or Jackson)\r\n
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/docs/readme.md b/docs/readme.md
+--- a/docs/readme.md	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
++++ b/docs/readme.md	(date 1764615984570)
+@@ -1,37 +1,324 @@
+-# Money Manager - JavaFX
++# Money Manager - JavaFX Personal Finance Tracker
++
++[![Java](https://img.shields.io/badge/Java-11+-orange.svg)](https://www.oracle.com/java/)
++[![JavaFX](https://img.shields.io/badge/JavaFX-21-blue.svg)](https://openjfx.io/)
++[![Maven](https://img.shields.io/badge/Maven-3.6+-red.svg)](https://maven.apache.org/)
++[![Status](https://img.shields.io/badge/Status-In%20Development-yellow.svg)]()
++
++A modern, user-friendly personal finance management application built with JavaFX. Track your income, expenses, budgets, and financial goals all in one place.
++
++---
++
++## 📋 Table of Contents
++- [Features](#features)
++- [Screenshots](#screenshots)
++- [Team Members](#team-members)
++- [Technology Stack](#technology-stack)
++- [Project Structure](#project-structure)
++- [Installation & Setup](#installation--setup)
++- [Usage](#usage)
++- [Development](#development)
++- [Roadmap](#roadmap)
++- [Contributing](#contributing)
++
++---
++
++## ✨ Features
++
++### Current Features (v1.0 - UI Complete)
++- ✅ Modern, responsive user interface
++- ✅ Multiple view screens (Dashboard, Transactions, Budget, Settings)
++- ✅ Custom dark theme with CSS styling
++- ✅ Professional table layouts with filters
++- ✅ Ikonli icon integration for better UX
++
++### Planned Features (In Development)
++- 🔄 User authentication (Login/Signup)
++- 🔄 Multi-account support (Wallet, Bank, Mobile Banking)
++- 🔄 Transaction management (Income, Expense, Transfer)
++- 🔄 Budget tracking and alerts
++- 🔄 Financial charts and analytics
++- 🔄 Data persistence with JSON
++- 🔄 Export/Import functionality
++
++---
++
++## 🖼️ Screenshots
++
++### Transactions View
++The main transaction management screen with filtering options.
++
++### Dashboard
++Financial overview with charts and statistics.
++
++### Budget Management
++Track and manage your budgets by category.
++
++---
++
++## 👥 Team Members
++
++| Member | Role | GitHub |
++|--------|------|--------|
++| **Zarif** | Project Leader & UI Integration | [@AhmedZarif57](https://github.com/AhmedZarif57) |
++| **Akif** | Backend Developer | - |
++| **Mushfiq** | UI/UX Developer | - |
++| **Hemonto** | Data Persistence Engineer | - |
++| **Rafi** | QA & Assets Manager | - |
++
++---
++
++## 🛠️ Technology Stack
++
++### Core Technologies
++- **Java SE 11+** - Core programming language
++- **JavaFX 21** - Modern UI framework
++- **Maven** - Build automation and dependency management
++
++### Libraries & Dependencies
++- **JavaFX Controls** - UI components (buttons, tables, etc.)
++- **JavaFX FXML** - Declarative UI design
++- **Ikonli JavaFX 12.3.1** - Icon library
++- **Ikonli FontAwesome5 Pack** - Font Awesome icons
++- **Gson 2.10.1** - JSON serialization/deserialization
++
++---
++
++## 📁 Project Structure
++
++```
++money-manager/
++│
++├── src/
++│   ├── main/
++│   │   ├── java/
++│   │   │   └── com/
++│   │   │       ├── models/           # Data models (User, Account, Transaction)
++│   │   │       │   ├── User.java
++│   │   │       │   └── Account.java
++│   │   │       │
++│   │   │       ├── controllers/      # FXML Controllers
++│   │   │       │   ├── MainController.java
++│   │   │       │   ├── DashboardController.java
++│   │   │       │   ├── TransactionsController.java
++│   │   │       │   ├── BudgetController.java
++│   │   │       │   └── SettingsController.java
++│   │   │       │
++│   │   │       └── utils/           # Utility classes
++│   │   │           ├── App.java
++│   │   │           └── NavigationManager.java
++│   │   │
++│   │   └── resources/
++│   │       ├── fxml/                # FXML view files
++│   │       │   ├── main.fxml
++│   │       │   ├── dashboard.fxml
++│   │       │   ├── transactions.fxml
++│   │       │   ├── budget.fxml
++│   │       │   └── settings.fxml
++│   │       │
++│   │       ├── css/                 # Stylesheets
++│   │       │   └── styles.css
++│   │       │
++│   │       └── images/              # Application icons and images
++│   │
++│   └── test/                        # Unit tests (future)
++│
++├── docs/                            # Documentation
++│   └── readme.md
++│
++├── pom.xml                          # Maven configuration
++├── PROJECT_PROGRESS.md              # Progress report
++├── DEMO_GUIDE.md                    # Demonstration guide
++└── README.md                        # This file
++```
++
++---
++
++## 🚀 Installation & Setup
++
++### Prerequisites
++- **Java JDK 11 or higher** - [Download](https://www.oracle.com/java/technologies/downloads/)
++- **Maven 3.6+** - Usually bundled with IDE
++- **IntelliJ IDEA** (Recommended) or any Java IDE
++
++### Installation Steps
++
++1. **Clone the repository**
++   ```bash
++   git clone https://github.com/AhmedZarif57/money-manager.git
++   cd money-manager
++   ```
++
++2. **Open in IntelliJ IDEA**
++   - File → Open → Select the `money-manager` folder
++   - Wait for Maven to download dependencies
++
++3. **Build the project**
++   ```bash
++   mvn clean install
++   ```
++
++4. **Run the application**
++   - Right-click `App.java` → Run 'App.main()'
++   
++   Or use Maven:
++   ```bash
++   mvn javafx:run
++   ```
++
++---
++
++## 💻 Usage
++
++### Running the Application
++
++**From IDE:**
++1. Navigate to `src/main/java/com/utils/App.java`
++2. Right-click and select "Run 'App.main()'"
++
++**From Terminal:**
++```bash
++mvn clean javafx:run
++```
++
++### Navigation
++- Use the sidebar menu to switch between different views
++- Dashboard: Financial overview and charts
++- Transactions: Manage all transactions
++- Budget: Track and set budgets
++- Settings: Configure preferences
++
++---
++
++## 🔧 Development
++
++### Setting Up Development Environment
++
++1. **Fork and clone the repository**
++2. **Create a new branch**
++   ```bash
++   git checkout -b feature/your-feature-name
++   ```
++
++3. **Make your changes**
++   - Follow the existing code style
++   - Add comments and documentation
++   - Test your changes
++
++4. **Commit and push**
++   ```bash
++   git add .
++   git commit -m "Add: your feature description"
++   git push origin feature/your-feature-name
++   ```
++
++5. **Create a Pull Request**
+ 
+-A modern, multi-user personal finance tracker built with JavaFX.
++### Code Style Guidelines
++- Use meaningful variable and method names
++- Add JavaDoc comments for classes and methods
++- Follow Java naming conventions
++- Keep methods focused and small
++- Separate UI logic from business logic
+ 
+-## Features
+-- User authentication (login/signup)
+-- Multi-account support (Wallet, Bank, Mobile Banking)
+-- Income, Expense, and Transfer transactions
+-- Statistics and charts (Pie, Bar, Line charts)
+-- JSON-based data persistence
+-- Beautiful, modern UI with Ikonli icons
++### Building from Source
++```bash
++# Clean previous builds
++mvn clean
+ 
+-## Team Members
+-- Zarif (Leader, UI Integration)
+-- Akif (Backend Developer)
+-- Mushfiq (UI Developer)
+-- Hemonto (Services & Data Persistence)
+-- Rafi (Assets & Testing)
++# Compile
++mvn compile
+ 
+-## Project Structure
+-- `src/models/` - Data models (User, Account, Transaction, etc.)
+-- `src/services/` - Business logic (Auth, Ledger, File I/O)
+-- `src/controllers/` - JavaFX controllers
+-- `resources/fxml/` - FXML view files
+-- `resources/css/` - Styling
+-- `resources/data/` - JSON data files
++# Package
++mvn package
+ 
+-## Setup & Run
+-1. Clone the repo
+-2. Open in IntelliJ IDEA
+-3. Run `Main.java`
++# Run
++mvn javafx:run
++```
+ 
+-## Tech Stack
+-- Java 11+
+-- JavaFX 21
+-- Ikonli (for icons)
+-- JSON (via Gson or Jackson)
++---
++
++## 🗺️ Roadmap
++
++### Phase 1: Foundation & UI ✅ COMPLETE
++- [x] Project setup and configuration
++- [x] Maven integration
++- [x] FXML view designs
++- [x] CSS styling
++- [x] Basic navigation
++
++### Phase 2: Core Functionality 🔄 IN PROGRESS
++- [ ] User authentication system
++- [ ] Data model implementation
++- [ ] Controller logic
++- [ ] Transaction CRUD operations
++- [ ] JSON data persistence
++
++### Phase 3: Features & Analytics ⏳ UPCOMING
++- [ ] Dashboard charts (Pie, Bar, Line)
++- [ ] Budget tracking and alerts
++- [ ] Multi-account support
++- [ ] Category management
++- [ ] Search and filtering
++
++### Phase 4: Polish & Advanced Features ⏳ FUTURE
++- [ ] Export/Import (CSV, PDF)
++- [ ] Recurring transactions
++- [ ] Multi-currency support
++- [ ] Cloud synchronization
++- [ ] Mobile app integration
++
++---
++
++## 🤝 Contributing
++
++We welcome contributions! Here's how you can help:
++
++1. **Report Bugs** - Open an issue with details
++2. **Suggest Features** - Share your ideas
++3. **Submit Pull Requests** - Fix bugs or add features
++4. **Improve Documentation** - Help others understand the project
++
++### Areas Needing Help
++- Backend service implementation
++- Unit test coverage
++- Additional themes
++- Internationalization (i18n)
++- Performance optimization
++
++---
++
++## 📄 License
++
++This project is developed for educational purposes as part of our coursework.
++
++---
++
++## 📞 Contact & Support
++
++- **Repository:** [github.com/AhmedZarif57/money-manager](https://github.com/AhmedZarif57/money-manager)
++- **Issues:** [Report a bug](https://github.com/AhmedZarif57/money-manager/issues)
++- **Branch:** mushfiq (development)
++
++---
++
++## 🙏 Acknowledgments
++
++- JavaFX community for excellent documentation
++- Ikonli project for beautiful icons
++- Our instructor for guidance and support
++- All team members for their dedication
++
++---
++
++## 📊 Project Status
++
++**Current Version:** 1.0-SNAPSHOT  
++**Status:** Active Development  
++**Last Updated:** December 1, 2025  
++**Progress:** Phase 1 Complete, Phase 2 In Progress
++
++---
++
++**Made with ❤️ by the Money Manager Team**
++
+Index: .idea/workspace.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"AutoImportSettings\">\r\n    <option name=\"autoReloadType\" value=\"SELECTIVE\" />\r\n  </component>\r\n  <component name=\"ChangeListManager\">\r\n    <list default=\"true\" id=\"4f73bf2b-ef13-4f77-8566-419254f97378\" name=\"Changes\" comment=\"fixed fxml files\">\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/libraries/javafx.xml\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/money-manager.iml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/money-manager.iml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/.idea/workspace.xml\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/.idea/workspace.xml\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/java/com/App.java\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/java/com/utils/App.java\" afterDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/css/dashboard.css\" beforeDir=\"false\" />\r\n      <change beforePath=\"$PROJECT_DIR$/src/main/resources/css/styles.css\" beforeDir=\"false\" afterPath=\"$PROJECT_DIR$/src/main/resources/css/styles.css\" afterDir=\"false\" />\r\n    </list>\r\n    <option name=\"SHOW_DIALOG\" value=\"false\" />\r\n    <option name=\"HIGHLIGHT_CONFLICTS\" value=\"true\" />\r\n    <option name=\"HIGHLIGHT_NON_ACTIVE_CHANGELIST\" value=\"false\" />\r\n    <option name=\"LAST_RESOLUTION\" value=\"IGNORE\" />\r\n  </component>\r\n  <component name=\"Git.Settings\">\r\n    <option name=\"RECENT_BRANCH_BY_REPOSITORY\">\r\n      <map>\r\n        <entry key=\"$PROJECT_DIR$\" value=\"akif\" />\r\n      </map>\r\n    </option>\r\n    <option name=\"RECENT_GIT_ROOT_PATH\" value=\"$PROJECT_DIR$\" />\r\n  </component>\r\n  <component name=\"GitHubPullRequestSearchHistory\">{\r\n  &quot;lastFilter&quot;: {\r\n    &quot;state&quot;: &quot;OPEN&quot;,\r\n    &quot;assignee&quot;: &quot;Mushfiq530&quot;\r\n  }\r\n}</component>\r\n  <component name=\"GithubPullRequestsUISettings\">{\r\n  &quot;selectedUrlAndAccountId&quot;: {\r\n    &quot;url&quot;: &quot;https://github.com/AhmedZarif57/money-manager.git&quot;,\r\n    &quot;accountId&quot;: &quot;dea32c76-29da-4f6d-8dc1-2fa31029c2fd&quot;\r\n  },\r\n  &quot;recentNewPullRequestHead&quot;: {\r\n    &quot;server&quot;: {\r\n      &quot;useHttp&quot;: false,\r\n      &quot;host&quot;: &quot;github.com&quot;,\r\n      &quot;port&quot;: null,\r\n      &quot;suffix&quot;: null\r\n    },\r\n    &quot;owner&quot;: &quot;AhmedZarif57&quot;,\r\n    &quot;repository&quot;: &quot;money-manager&quot;\r\n  }\r\n}</component>\r\n  <component name=\"ProjectColorInfo\">{\r\n  &quot;associatedIndex&quot;: 1\r\n}</component>\r\n  <component name=\"ProjectId\" id=\"369qTiGWYopRXBNvwz54aUlprDS\" />\r\n  <component name=\"ProjectViewState\">\r\n    <option name=\"hideEmptyMiddlePackages\" value=\"true\" />\r\n    <option name=\"showLibraryContents\" value=\"true\" />\r\n  </component>\r\n  <component name=\"PropertiesComponent\"><![CDATA[{\r\n  \"keyToString\": {\r\n    \"ASKED_SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"Application.Run.executor\": \"Run\",\r\n    \"ModuleVcsDetector.initialDetectionPerformed\": \"true\",\r\n    \"RunOnceActivity.ShowReadmeOnStart\": \"true\",\r\n    \"RunOnceActivity.git.unshallow\": \"true\",\r\n    \"SHARE_PROJECT_CONFIGURATION_FILES\": \"true\",\r\n    \"git-widget-placeholder\": \"mushfiq\",\r\n    \"ignore.virus.scanning.warn.message\": \"true\",\r\n    \"kotlin-language-version-configured\": \"true\",\r\n    \"last_opened_file_path\": \"F:/Github/money-manager\",\r\n    \"project.structure.last.edited\": \"SDKs\",\r\n    \"project.structure.proportion\": \"0.15\",\r\n    \"project.structure.side.proportion\": \"0.2\",\r\n    \"settings.editor.selected.configurable\": \"preferences.pluginManager\"\r\n  }\r\n}]]></component>\r\n  <component name=\"RunManager\">\r\n    <configuration name=\"Run\" type=\"Application\" factoryName=\"Application\">\r\n      <option name=\"MAIN_CLASS_NAME\" value=\"com.utils.App\" />\r\n      <module name=\"money-manager\" />\r\n      <option name=\"VM_PARAMETERS\" value=\"--module-path &quot;F:\\javafx-sdk-25.0.1\\lib&quot; --add-modules javafx.controls,javafx.fxml \" />\r\n      <method v=\"2\">\r\n        <option name=\"Make\" enabled=\"true\" />\r\n      </method>\r\n    </configuration>\r\n  </component>\r\n  <component name=\"TaskManager\">\r\n    <task active=\"true\" id=\"Default\" summary=\"Default task\">\r\n      <changelist id=\"4f73bf2b-ef13-4f77-8566-419254f97378\" name=\"Changes\" comment=\"\" />\r\n      <created>1764429145570</created>\r\n      <option name=\"number\" value=\"Default\" />\r\n      <option name=\"presentableId\" value=\"Default\" />\r\n      <updated>1764429145570</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00001\" summary=\"All fxml files updates with css\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1764579893106</created>\r\n      <option name=\"number\" value=\"00001\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00001\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1764579893106</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00002\" summary=\"fixed fxml files but the I have doubts on the App.java it's still not running\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1764596651321</created>\r\n      <option name=\"number\" value=\"00002\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00002\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1764596651321</updated>\r\n    </task>\r\n    <task id=\"LOCAL-00003\" summary=\"fixed fxml files\">\r\n      <option name=\"closed\" value=\"true\" />\r\n      <created>1764597284188</created>\r\n      <option name=\"number\" value=\"00003\" />\r\n      <option name=\"presentableId\" value=\"LOCAL-00003\" />\r\n      <option name=\"project\" value=\"LOCAL\" />\r\n      <updated>1764597284188</updated>\r\n    </task>\r\n    <option name=\"localTasksCounter\" value=\"4\" />\r\n    <servers />\r\n  </component>\r\n  <component name=\"Vcs.Log.Tabs.Properties\">\r\n    <option name=\"TAB_STATES\">\r\n      <map>\r\n        <entry key=\"MAIN\">\r\n          <value>\r\n            <State />\r\n          </value>\r\n        </entry>\r\n      </map>\r\n    </option>\r\n  </component>\r\n  <component name=\"VcsManagerConfiguration\">\r\n    <MESSAGE value=\"All fxml files updates with css\" />\r\n    <MESSAGE value=\"fixed fxml files but the I have doubts on the App.java it's still not running\" />\r\n    <MESSAGE value=\"fixed fxml files\" />\r\n    <option name=\"LAST_COMMIT_MESSAGE\" value=\"fixed fxml files\" />\r\n  </component>\r\n  <component name=\"com.intellij.coverage.CoverageDataManagerImpl\">\r\n    <SUITE FILE_PATH=\"coverage/money_manager$Run.ic\" NAME=\"Run Coverage Results\" MODIFIED=\"1764601532555\" SOURCE_PROVIDER=\"com.intellij.coverage.DefaultCoverageFileProvider\" RUNNER=\"idea\" COVERAGE_BY_TEST_ENABLED=\"false\" COVERAGE_TRACING_ENABLED=\"true\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/workspace.xml b/.idea/workspace.xml
+--- a/.idea/workspace.xml	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
++++ b/.idea/workspace.xml	(date 1764615984568)
+@@ -4,13 +4,17 @@
+     <option name="autoReloadType" value="SELECTIVE" />
+   </component>
+   <component name="ChangeListManager">
+-    <list default="true" id="4f73bf2b-ef13-4f77-8566-419254f97378" name="Changes" comment="fixed fxml files">
+-      <change beforePath="$PROJECT_DIR$/.idea/libraries/javafx.xml" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/.idea/money-manager.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/money-manager.iml" afterDir="false" />
++    <list default="true" id="4f73bf2b-ef13-4f77-8566-419254f97378" name="Changes" comment="fixed everything">
++      <change afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
++      <change afterPath="$PROJECT_DIR$/.idea/libraries/javafx_base.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
++      <change beforePath="$PROJECT_DIR$/.idea/money-manager.iml" beforeDir="false" />
+       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/java/com/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utils/App.java" afterDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/dashboard.css" beforeDir="false" />
+-      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/docs/readme.md" beforeDir="false" afterPath="$PROJECT_DIR$/docs/readme.md" afterDir="false" />
++      <change beforePath="$PROJECT_DIR$/src/main/java/com/utils/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utils/App.java" afterDir="false" />
+     </list>
+     <option name="SHOW_DIALOG" value="false" />
+     <option name="HIGHLIGHT_CONFLICTS" value="true" />
+@@ -34,7 +38,7 @@
+   <component name="GithubPullRequestsUISettings">{
+   &quot;selectedUrlAndAccountId&quot;: {
+     &quot;url&quot;: &quot;https://github.com/AhmedZarif57/money-manager.git&quot;,
+-    &quot;accountId&quot;: &quot;dea32c76-29da-4f6d-8dc1-2fa31029c2fd&quot;
++    &quot;accountId&quot;: &quot;d4528e3b-0b6c-4fe5-93d2-5ca68887afc0&quot;
+   },
+   &quot;recentNewPullRequestHead&quot;: {
+     &quot;server&quot;: {
+@@ -55,29 +59,39 @@
+     <option name="hideEmptyMiddlePackages" value="true" />
+     <option name="showLibraryContents" value="true" />
+   </component>
+-  <component name="PropertiesComponent"><![CDATA[{
+-  "keyToString": {
+-    "ASKED_SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "Application.Run.executor": "Run",
+-    "ModuleVcsDetector.initialDetectionPerformed": "true",
+-    "RunOnceActivity.ShowReadmeOnStart": "true",
+-    "RunOnceActivity.git.unshallow": "true",
+-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+-    "git-widget-placeholder": "mushfiq",
+-    "ignore.virus.scanning.warn.message": "true",
+-    "kotlin-language-version-configured": "true",
+-    "last_opened_file_path": "F:/Github/money-manager",
+-    "project.structure.last.edited": "SDKs",
+-    "project.structure.proportion": "0.15",
+-    "project.structure.side.proportion": "0.2",
+-    "settings.editor.selected.configurable": "preferences.pluginManager"
+-  }
+-}]]></component>
++  <component name="PropertiesComponent">{
++  &quot;keyToString&quot;: {
++    &quot;ASKED_SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;Application.Run.executor&quot;: &quot;Run&quot;,
++    &quot;Downloaded.Files.Path.Enabled&quot;: &quot;true&quot;,
++    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
++    &quot;Repository.Attach.Annotations&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.JavaDocs&quot;: &quot;false&quot;,
++    &quot;Repository.Attach.Sources&quot;: &quot;false&quot;,
++    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
++    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
++    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
++    &quot;git-widget-placeholder&quot;: &quot;#7 on mushfiq&quot;,
++    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
++    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
++    &quot;last_opened_file_path&quot;: &quot;C:/Users/ahmed/Documents/Environ/Java/money-manager&quot;,
++    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
++    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
++    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
++    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
++  }
++}</component>
++  <component name="Push.Settings">
++    <force-push-targets>
++      <force-push-target remote-path="origin" branch="mushfiq" />
++    </force-push-targets>
++  </component>
+   <component name="RunManager">
+     <configuration name="Run" type="Application" factoryName="Application">
+       <option name="MAIN_CLASS_NAME" value="com.utils.App" />
+       <module name="money-manager" />
+-      <option name="VM_PARAMETERS" value="--module-path &quot;F:\javafx-sdk-25.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml " />
++      <option name="VM_PARAMETERS" value="--module-path &quot;C:\Program Files\javafx-sdk-25.0.1\lib&quot; --add-modules javafx.controls,javafx.fxml" />
+       <method v="2">
+         <option name="Make" enabled="true" />
+       </method>
+@@ -115,7 +129,15 @@
+       <option name="project" value="LOCAL" />
+       <updated>1764597284188</updated>
+     </task>
+-    <option name="localTasksCounter" value="4" />
++    <task id="LOCAL-00004" summary="fixed everything">
++      <option name="closed" value="true" />
++      <created>1764607313429</created>
++      <option name="number" value="00004" />
++      <option name="presentableId" value="LOCAL-00004" />
++      <option name="project" value="LOCAL" />
++      <updated>1764607313429</updated>
++    </task>
++    <option name="localTasksCounter" value="5" />
+     <servers />
+   </component>
+   <component name="Vcs.Log.Tabs.Properties">
+@@ -133,7 +155,8 @@
+     <MESSAGE value="All fxml files updates with css" />
+     <MESSAGE value="fixed fxml files but the I have doubts on the App.java it's still not running" />
+     <MESSAGE value="fixed fxml files" />
+-    <option name="LAST_COMMIT_MESSAGE" value="fixed fxml files" />
++    <MESSAGE value="fixed everything" />
++    <option name="LAST_COMMIT_MESSAGE" value="fixed everything" />
+   </component>
+   <component name="com.intellij.coverage.CoverageDataManagerImpl">
+     <SUITE FILE_PATH="coverage/money_manager$Run.ic" NAME="Run Coverage Results" MODIFIED="1764601532555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />
+Index: .idea/compiler.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/compiler.xml b/.idea/compiler.xml
+new file mode 100644
+--- /dev/null	(date 1764615984562)
++++ b/.idea/compiler.xml	(date 1764615984562)
+@@ -0,0 +1,13 @@
++<?xml version="1.0" encoding="UTF-8"?>
++<project version="4">
++  <component name="CompilerConfiguration">
++    <annotationProcessing>
++      <profile name="Maven default annotation processors profile" enabled="true">
++        <sourceOutputDir name="target/generated-sources/annotations" />
++        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
++        <outputRelativeToContentRoot value="true" />
++        <module name="money-manager" />
++      </profile>
++    </annotationProcessing>
++  </component>
++</project>
+\ No newline at end of file
+Index: .idea/libraries/javafx_base.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/libraries/javafx_base.xml b/.idea/libraries/javafx_base.xml
+new file mode 100644
+--- /dev/null	(date 1764615984565)
++++ b/.idea/libraries/javafx_base.xml	(date 1764615984565)
+@@ -0,0 +1,19 @@
++<component name="libraryTable">
++  <library name="javafx-base">
++    <CLASSES>
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.base.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.controls.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.fxml.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.graphics.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.media.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.swing.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx.web.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/javafx-swt.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/jdk.jsobject.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/jfx.incubator.input.jar!/" />
++      <root url="jar://$PROJECT_DIR$/../../../../../../Program Files/javafx-sdk-25.0.1/lib/jfx.incubator.richtext.jar!/" />
++    </CLASSES>
++    <JAVADOC />
++    <SOURCES />
++  </library>
++</component>
+\ No newline at end of file
+Index: .idea/misc.xml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+><?xml version=\"1.0\" encoding=\"UTF-8\"?>\r\n<project version=\"4\">\r\n  <component name=\"ExternalStorageConfigurationManager\" enabled=\"true\" />\r\n  <component name=\"ProjectRootManager\" version=\"2\" languageLevel=\"JDK_25\" default=\"true\" project-jdk-name=\"25\" project-jdk-type=\"JavaSDK\">\r\n    <output url=\"file://$PROJECT_DIR$/../../javafx-sdk-25.0.1/lib\" />\r\n  </component>\r\n</project>
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/.idea/misc.xml b/.idea/misc.xml
+--- a/.idea/misc.xml	(revision 88bcbf6d091f011ca3d18650eac4151f03fa50c9)
++++ b/.idea/misc.xml	(date 1764615984567)
+@@ -1,7 +1,14 @@
+ <?xml version="1.0" encoding="UTF-8"?>
+ <project version="4">
+   <component name="ExternalStorageConfigurationManager" enabled="true" />
++  <component name="MavenProjectsManager">
++    <option name="originalFiles">
++      <list>
++        <option value="$PROJECT_DIR$/pom.xml" />
++      </list>
++    </option>
++  </component>
+   <component name="ProjectRootManager" version="2" languageLevel="JDK_25" default="true" project-jdk-name="25" project-jdk-type="JavaSDK">
+-    <output url="file://$PROJECT_DIR$/../../javafx-sdk-25.0.1/lib" />
++    <output url="file://$PROJECT_DIR$/out" />
+   </component>
+ </project>
+\ No newline at end of file
+diff --git a/src/main/java/com/utils/NavigationManager.java b/src/main/java/com/utils/NavigationManager.java
+deleted file mode 100644

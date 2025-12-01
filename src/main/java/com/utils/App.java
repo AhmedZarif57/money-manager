@@ -11,24 +11,32 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws Exception {
 
-        // Load your FXML correctly
+        // Load the main FXML view
         FXMLLoader fxmlLoader = new FXMLLoader(
-                getClass().getResource("/fxml/budget.fxml")
+                getClass().getResource("/fxml/dashboard.fxml")
         );
 
         Parent root = fxmlLoader.load();
 
-        // Apply CSS
+        // Create scene and apply custom CSS styling
         Scene scene = new Scene(root, 1000, 700);
         scene.getStylesheets().addAll(
                 getClass().getResource("/css/styles.css").toExternalForm()
         );
 
-        stage.setTitle("Money Manager Preview");
+        // Configure and display the main window
+        stage.setTitle("Money Manager - Personal Finance Tracker");
         stage.setScene(scene);
+        stage.setResizable(true);
+        stage.setMinWidth(800);
+        stage.setMinHeight(600);
         stage.show();
     }
 
+    /**
+     * Application entry point
+     * @param args command line arguments
+     */
     public static void main(String[] args) {
         launch();
     }

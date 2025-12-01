@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
@@ -11,6 +18,33 @@
             prefWidth="1000" prefHeight="700"
             styleClass="dashboard-root">
 
+    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
+
+        <!-- PAGE TITLE -->
+        <HBox alignment="CENTER_LEFT" spacing="20">
+            <Label text="Dashboard" styleClass="page-title"/>
+        </HBox>
+
+        <!-- DASHBOARD CARDS -->
+        <HBox spacing="20" alignment="CENTER_LEFT">
+            <VBox spacing="10" styleClass="dashboard-card" prefWidth="200" prefHeight="100">
+                <Label text="Total Balance" styleClass="card-title"/>
+                <Label text="0.00 $" styleClass="card-value"/>
+            </VBox>
+            <VBox spacing="10" styleClass="dashboard-card" prefWidth="200" prefHeight="100">
+                <Label text="Income" styleClass="card-title"/>
+                <Label text="0.00 $" styleClass="card-value"/>
+            </VBox>
+            <VBox spacing="10" styleClass="dashboard-card" prefWidth="200" prefHeight="100">
+                <Label text="Expenses" styleClass="card-title"/>
+                <Label text="0.00 $" styleClass="card-value"/>
+            </VBox>
+        </HBox>
+
+        <!-- CHART PLACEHOLDER -->
+        <VBox VBox.vgrow="ALWAYS">
+            <StackPane fx:id="dashboardChart" styleClass="chart-area" prefHeight="450" prefWidth="960"/>
+        </VBox>
     <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="730">
 
         <!-- PAGE TITLE -->

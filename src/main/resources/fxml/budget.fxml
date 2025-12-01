@@ -9,7 +9,8 @@
             xmlns:fx="http://javafx.com/fxml/1"
             fx:id="budgetRoot"
             prefWidth="1000" prefHeight="700"
-            styleClass="budget-root">
+            styleClass="budget-root"
+            fx:controller="com.controller.BudgetController">
 
     <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 

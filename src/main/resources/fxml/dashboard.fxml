@@ -40,11 +40,11 @@
 
         <TableView fx:id="recentTable" prefHeight="350" styleClass="table-dark">
             <columns>
-                <TableColumn text="Date" prefWidth="120"/>
-                <TableColumn text="Category" prefWidth="150"/>
-                <TableColumn text="Type" prefWidth="100"/>
-                <TableColumn text="Account" prefWidth="150"/>
-                <TableColumn text="Amount" prefWidth="120"/>
+                <TableColumn fx:id="dateColumn" text="Date" prefWidth="120"/>
+                <TableColumn fx:id="categoryColumn" text="Category" prefWidth="150"/>
+                <TableColumn fx:id="typeColumn" text="Type" prefWidth="100"/>
+                <TableColumn fx:id="accountColumn" text="Account" prefWidth="150"/>
+                <TableColumn fx:id="amountColumn" text="Amount" prefWidth="120"/>
             </columns>
         </TableView>
 

@@ -1,171 +1,640 @@
-/* ------------------------------------------------------
-   GLOBAL DARK BACKGROUND
------------------------------------------------------- */
+/* ==================== MONEY MANAGER - USER PALETTE ONLY ====================
+   Colors: #0C2B4E (dark blue), #1A3D64 (medium blue), #1D546C (teal blue), #F4F4F4 (light gray)
+   ============================================================================ */
+
+/* ==================== ROOT & GLOBAL ==================== */
 .root {
-    -fx-background-color: #0d0f15;
-    -fx-font-family: "Segoe UI", sans-serif;
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
+    -fx-font-family: 'Segoe UI', Arial, sans-serif;
 }
 
-/* ------------------------------------------------------
-   PAGE TITLES
------------------------------------------------------- */
-.page-title {
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 26px;
-    -fx-font-weight: bold;
+/* ==================== GLASS CARD EFFECT ==================== */
+.glass-card {
+    -fx-background-color: rgba(29, 84, 108, 0.3);
+    -fx-background-radius: 20px;
+    -fx-border-radius: 20px;
+    -fx-border-color: rgba(244, 244, 244, 0.2);
+    -fx-border-width: 1.5px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 25, 0.3, 0, 10);
+    -fx-padding: 20px;
 }
 
-/* ------------------------------------------------------
-   BUTTONS
------------------------------------------------------- */
-.add-btn, .save-btn, .nav-btn, .clear-btn {
-    -fx-background-color: #1b1f2a;
-    -fx-text-fill: #00eaff;
-    -fx-font-size: 14px;
+/* ==================== CONTENT ROOT ==================== */
+.content-root {
+    -fx-background-color: transparent;
+    -fx-alignment: center;
+}
+
+/* ==================== SIDEBAR ==================== */
+.sidebar {
+    -fx-background-color: rgba(12, 43, 78, 0.98);
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-width: 0 2 0 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.5), 20, 0.4, 5, 0);
+}
+
+.sidebar-title {
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-text-fill: #F4F4F4;
+    -fx-padding: 0 0 30 0;
+}
+
+/* Navigation Buttons */
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-text-fill: #F4F4F4;
+    -fx-font-size: 15px;
+    -fx-font-weight: 500;
+    -fx-padding: 14px 20px;
+    -fx-background-radius: 12px;
     -fx-cursor: hand;
-    -fx-padding: 6 12 6 12;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: transparent;
+    -fx-border-radius: 12px;
+    -fx-border-width: 0;
 }
 
-.add-btn:hover, .save-btn:hover, .nav-btn:hover, .clear-btn:hover {
-    -fx-background-color: #263143;
+.nav-button:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.3);
+    -fx-text-fill: #F4F4F4;
 }
 
-/* ------------------------------------------------------
-   TABLES
------------------------------------------------------- */
-.table-dark {
-    -fx-background-color: #141720;
-    -fx-control-inner-background: #141720;
-    -fx-padding: 10;
+.nav-button:pressed {
+    -fx-background-color: rgba(29, 84, 108, 0.5);
 }
 
-.table-dark .column-header-background {
-    -fx-background-color: #10131a;
+/* Navigation Button Active State */
+.nav-button-active {
+    -fx-background-color: rgba(29, 84, 108, 0.6) !important;
+    -fx-text-fill: #F4F4F4 !important;
+    -fx-font-weight: 700 !important;
+    -fx-border-color: #1D546C !important;
+    -fx-border-width: 0 0 0 4 !important;
 }
 
-.table-dark .column-header .label {
-    -fx-text-fill: #0077cc; /* Dark blue text for headers */
-    -fx-font-weight: bold;
+/* Logout Button */
+.logout-button {
+    -fx-background-color: rgba(29, 84, 108, 0.4);
+    -fx-text-fill: #F4F4F4;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12px 20px;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+}
+
+.logout-button:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.6);
+}
+
+/* ==================== TYPOGRAPHY ==================== */
+.page-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #F4F4F4;
+}
+
+.welcome-label {
+    -fx-font-size: 30px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #F4F4F4;
+}
+
+Label {
+    -fx-text-fill: #F4F4F4;
+}
+
+/* ==================== DASHBOARD CARDS ==================== */
+.glass-card .card-title {
+    -fx-text-fill: #1D546C;
+}
+
+.glass-card .card-value {
+    -fx-text-fill: #F4F4F4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 8, 0.4, 0, 2);
+}
+
+/* ==================== BUTTONS ==================== */
+Button {
+    -fx-background-color: #1D546C;
+    -fx-text-fill: #F4F4F4;
+    -fx-font-size: 14px;
+    -fx-font-weight: 600;
+    -fx-padding: 12px 24px;
+    -fx-background-radius: 12px;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.5), 18, 0.5, 0, 5);
+    -fx-border-width: 0;
+}
+
+Button:hover {
+    -fx-background-color: #1A3D64;
+    -fx-scale-x: 1.03;
+    -fx-scale-y: 1.03;
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.7), 22, 0.6, 0, 7);
+}
+
+Button:pressed {
+    -fx-background-color: #0C2B4E;
+    -fx-scale-x: 0.97;
+    -fx-scale-y: 0.97;
+}
+
+Button:focused {
+    -fx-border-color: #1D546C;
+    -fx-border-width: 2px;
+    -fx-border-radius: 12px;
+}
+
+/* Add Button */
+.add-btn {
+    -fx-background-color: #1D546C;
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.5), 18, 0.5, 0, 5);
+}
+
+.add-btn:hover {
+    -fx-background-color: #1A3D64;
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.7), 22, 0.6, 0, 7);
+}
+
+/* Clear/Secondary Buttons */
+.clear-btn, .cancel-btn {
+    -fx-background-color: rgba(26, 61, 100, 0.5);
+    -fx-text-fill: #F4F4F4;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 12, 0.4, 0, 3);
+}
+
+.clear-btn:hover, .cancel-btn:hover {
+    -fx-background-color: rgba(26, 61, 100, 0.7);
+}
+
+/* Save Button */
+.save-btn {
+    -fx-background-color: #1D546C;
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.5), 18, 0.5, 0, 5);
+}
+
+.save-btn:hover {
+    -fx-background-color: #1A3D64;
+}
+
+/* Delete Button */
+.delete-btn {
+    -fx-background-color: #0C2B4E;
+    -fx-effect: dropshadow(gaussian, rgba(12, 43, 78, 0.5), 18, 0.5, 0, 5);
+}
+
+.delete-btn:hover {
+    -fx-background-color: #1A3D64;
+    -fx-effect: dropshadow(gaussian, rgba(26, 61, 100, 0.7), 22, 0.6, 0, 7);
+}
+
+/* Login Button */
+.login-btn {
+    -fx-background-color: #1D546C;
+}
+
+/* ==================== TEXT FIELDS & INPUTS ==================== */
+TextField, PasswordField, TextArea {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-padding: 12px 16px;
+    -fx-font-size: 14px;
+    -fx-text-fill: #F4F4F4;
+    -fx-prompt-text-fill: rgba(244, 244, 244, 0.5);
+}
+
+TextField:focused, PasswordField:focused, TextArea:focused {
+    -fx-border-color: #1D546C;
+    -fx-border-width: 2px;
+    -fx-background-color: rgba(26, 61, 100, 0.5);
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.4), 18, 0.5, 0, 0);
+}
+
+TextField:hover, PasswordField:hover, TextArea:hover {
+    -fx-border-color: rgba(29, 84, 108, 0.6);
+    -fx-background-color: rgba(26, 61, 100, 0.4);
+}
+
+/* ==================== COMBO BOX ==================== */
+ComboBox {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 14px;
+}
+
+ComboBox .text {
+    -fx-fill: #F4F4F4;
+}
+
+ComboBox:focused {
+    -fx-border-color: #1D546C;
+    -fx-border-width: 2px;
+}
+
+.combo-box-popup .list-view {
+    -fx-background-color: #0C2B4E;
+    -fx-background-radius: 10px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 25, 0.4, 0, 8);
+}
+
+.combo-box-popup .list-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #F4F4F4;
+    -fx-padding: 10px 15px;
+}
+
+.combo-box-popup .list-cell:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.3);
+    -fx-text-fill: #F4F4F4;
+}
+
+.combo-box-popup .list-cell:selected {
+    -fx-background-color: #1D546C;
+    -fx-text-fill: #F4F4F4;
+}
+
+/* ==================== DATE PICKER ==================== */
+DatePicker {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 10px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-radius: 10px;
+    -fx-border-width: 1.5px;
+}
+
+.date-picker-popup {
+    -fx-background-color: #0C2B4E;
+    -fx-background-radius: 15px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 30, 0.4, 0, 10);
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: rgba(29, 84, 108, 0.3);
+}
+
+.date-picker-popup .spinner .button {
+    -fx-background-color: transparent;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: transparent;
+    -fx-text-fill: #F4F4F4;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.3);
+    -fx-text-fill: #F4F4F4;
+}
+
+.date-picker-popup .selected {
+    -fx-background-color: #1D546C;
+    -fx-text-fill: #F4F4F4;
+}
+
+.date-picker .text-field {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-text-fill: #F4F4F4;
+}
+
+/* ==================== CHECKBOX ==================== */
+CheckBox {
+    -fx-text-fill: #F4F4F4;
+    -fx-font-size: 14px;
+}
+
+.check-box .box {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 6px;
+    -fx-border-color: rgba(29, 84, 108, 0.5);
+    -fx-border-radius: 6px;
+    -fx-border-width: 2px;
+    -fx-padding: 3px;
+}
+
+.check-box:selected .box {
+    -fx-background-color: #1D546C;
+    -fx-border-color: #1D546C;
+}
+
+.check-box .mark {
+    -fx-background-color: #F4F4F4;
+    -fx-shape: "M 0 4 L 3 7 L 8 0";
+    -fx-scale-x: 0.8;
+    -fx-scale-y: 0.8;
+}
+
+/* ==================== TABLE VIEW ==================== */
+TableView {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 15px;
+    -fx-border-color: rgba(29, 84, 108, 0.3);
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 20, 0.4, 0, 6);
+}
+
+.table-view .column-header-background {
+    -fx-background-color: rgba(29, 84, 108, 0.3);
+    -fx-background-radius: 15px 15px 0 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent transparent rgba(29, 84, 108, 0.4) transparent;
+    -fx-border-width: 0 0 2 0;
+    -fx-padding: 12px 8px;
+}
+
+.table-view .column-header .label {
+    -fx-text-fill: #F4F4F4;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER_LEFT;
+}
+
+.table-view .table-cell {
+    -fx-text-fill: #F4F4F4;
+    -fx-padding: 10px 8px;
+    -fx-alignment: CENTER_LEFT;
+    -fx-border-color: transparent;
 }
 
 .table-row-cell {
-    -fx-background-color: #141720;
-    -fx-text-fill: #00eaff; /* Sky blue text for table rows */
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
 }
 
 .table-row-cell:hover {
-    -fx-background-color: #1b1f2a;
+    -fx-background-color: rgba(29, 84, 108, 0.2);
 }
 
 .table-row-cell:selected {
-    -fx-background-color: #263143;
+    -fx-background-color: rgba(29, 84, 108, 0.4);
 }
 
-/* ------------------------------------------------------
-   FILTER BAR
------------------------------------------------------- */
+.table-view .filler {
+    -fx-background-color: transparent;
+}
+
+/* Scrollbar for table */
+.table-view .scroll-bar:vertical {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:vertical .thumb {
+    -fx-background-color: rgba(29, 84, 108, 0.5);
+    -fx-background-radius: 5px;
+}
+
+.table-view .scroll-bar:vertical .thumb:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.7);
+}
+
+/* ==================== CHARTS ==================== */
+.chart {
+    -fx-background-color: transparent;
+    -fx-padding: 10px;
+}
+
+.chart-content {
+    -fx-padding: 10px;
+}
+
+.chart-title {
+    -fx-text-fill: #F4F4F4;
+    -fx-font-size: 16px;
+    -fx-font-weight: 600;
+}
+
+.axis {
+    -fx-tick-label-fill: #F4F4F4;
+    -fx-font-size: 11px;
+}
+
+.axis-label {
+    -fx-text-fill: #F4F4F4;
+    -fx-font-weight: 500;
+}
+
+.chart-line-symbol {
+    -fx-background-color: #1D546C;
+    -fx-background-radius: 5px;
+    -fx-padding: 5px;
+}
+
+.chart-series-line {
+    -fx-stroke: #1D546C;
+    -fx-stroke-width: 3px;
+    -fx-effect: dropshadow(gaussian, rgba(29, 84, 108, 0.5), 12, 0.5, 0, 0);
+}
+
+/* ==================== FILTER BAR ==================== */
 .filter-bar {
-    -fx-background-color: #141720;
-    -fx-padding: 10;
-    -fx-background-radius: 10;
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 15px;
+    -fx-padding: 16px 20px;
+    -fx-border-color: rgba(29, 84, 108, 0.3);
+    -fx-border-radius: 15px;
+    -fx-border-width: 1px;
 }
 
 .filter-label {
-    -fx-text-fill: #d6d6d6;
-    -fx-font-size: 14px;
+    -fx-text-fill: #F4F4F4;
+    -fx-font-weight: 600;
+    -fx-font-size: 13px;
 }
 
-/* ------------------------------------------------------
-   DASHBOARD / BUDGET CARDS
------------------------------------------------------- */
-.dashboard-card, .budget-card, .summary-card {
-    -fx-background-color: #141720;
-    -fx-background-radius: 14;
-    -fx-padding: 18;
-    -fx-border-color: #202636;
-    -fx-border-radius: 14;
+/* ==================== LOGIN SCREEN ==================== */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
 }
 
-.card-title {
-    -fx-text-fill: #9aa0a6;
-    -fx-font-size: 14px;
+.login-root VBox {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 25px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-radius: 25px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 35, 0.5, 0, 12);
 }
 
-.card-value {
-    -fx-text-fill: #00eaff;
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
+.login-root .title-label {
+    -fx-text-fill: #F4F4F4;
+    -fx-alignment: center;
+    -fx-padding: 0 0 15 0;
 }
 
-/* ------------------------------------------------------
-   CHART AREAS
------------------------------------------------------- */
-.chart-area {
-    -fx-background-color: #141720;
-    -fx-background-radius: 14;
-    -fx-border-color: #202636;
-    -fx-border-radius: 14;
+.login-root TextField,
+.login-root PasswordField {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-text-fill: #F4F4F4;
 }
 
-/* ------------------------------------------------------
-   SETTINGS
------------------------------------------------------- */
+.login-root TextField:focused,
+.login-root PasswordField:focused {
+    -fx-background-color: rgba(26, 61, 100, 0.5);
+    -fx-border-color: #1D546C;
+}
+
+/* ==================== SIGNUP SCREEN ==================== */
+.signup-root {
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
+}
+
+.signup-root VBox {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 25px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-radius: 25px;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 35, 0.5, 0, 12);
+}
+
+.signup-root .title-label {
+    -fx-text-fill: #F4F4F4;
+}
+
+/* Success Labels */
+.success-title {
+    -fx-font-size: 26px;
+    -fx-font-weight: 700;
+    -fx-text-fill: #F4F4F4;
+    -fx-padding: 20 0 10 0;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 12, 0.4, 0, 3);
+}
+
+.success-sub {
+    -fx-font-size: 16px;
+    -fx-font-weight: 400;
+    -fx-text-fill: #F4F4F4;
+    -fx-padding: 0 0 20 0;
+}
+
+/* Setting Label */
 .setting-label {
-    -fx-text-fill: #d6d6d6;
-    -fx-font-size: 14px;
+    -fx-font-size: 15px;
+    -fx-font-weight: 600;
+    -fx-text-fill: #F4F4F4;
+    -fx-min-width: 120px;
 }
 
-/* ------------------------------------------------------
-   INPUT FIELDS (TextField, ComboBox, DatePicker)
------------------------------------------------------- */
-.text-field, .combo-box, .date-picker {
-    -fx-background-color: #1b1f2a;       /* dark background */
-    -fx-text-fill: #00eaff;              /* sky blue text */
-    -fx-prompt-text-fill: #00bfff;       /* lighter blue placeholder */
-    -fx-border-color: #202636;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-highlight-fill: #00eaff;         /* selection background */
-    -fx-highlight-text-fill: #0d0f15;    /* selected text color */
-    -fx-cursor: text;
+/* ==================== PAGE ROOTS ==================== */
+.transactions-root {
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
+    -fx-padding: 0;
 }
 
-/* ComboBox dropdown items */
-.combo-box .list-cell {
-    -fx-background-color: #1b1f2a;
-    -fx-text-fill: #00eaff;
+.settingRoot {
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
 }
 
-.combo-box .list-cell:hover {
-    -fx-background-color: #263143;
+.analytics-root {
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
 }
 
-/* ------------------------------------------------------
-   NAVIGATION BUTTONS
------------------------------------------------------- */
-.nav-btn {
-    -fx-background-color: #1b1f2a;
-    -fx-text-fill: #00eaff;
-    -fx-font-weight: bold;
-    -fx-background-radius: 8;
+.budget-root {
+    -fx-background-color: linear-gradient(to bottom right, #0C2B4E, #1A3D64);
 }
 
-.nav-btn:hover {
-    -fx-background-color: #263143;
+/* ==================== SCROLLBAR ==================== */
+.scroll-bar {
+    -fx-background-color: transparent;
 }
 
-/* ------------------------------------------------------
-   BUDGET SPECIFIC LABELS
------------------------------------------------------- */
-.budget-label {
-    -fx-text-fill: #0077cc; /* dark blue text for Category, Limit, Spent, Remaining */
+.scroll-bar .thumb {
+    -fx-background-color: rgba(29, 84, 108, 0.5);
+    -fx-background-radius: 5px;
 }
 
-/* ------------------------------------------------------
-   TRANSACTIONS TABLE HEADERS
------------------------------------------------------- */
-.transactions-header {
-    -fx-text-fill: #0077cc; /* dark blue text for Date, Category, Type, Account, Amount, Note */
+.scroll-bar .thumb:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.7);
+}
+
+.scroll-bar .track {
+    -fx-background-color: rgba(26, 61, 100, 0.3);
+    -fx-background-radius: 5px;
+}
+
+.scroll-bar .increment-button,
+.scroll-bar .decrement-button {
+    -fx-background-color: transparent;
+}
+
+/* ==================== TOOLTIPS ==================== */
+.tooltip {
+    -fx-background-color: rgba(12, 43, 78, 0.95);
+    -fx-text-fill: #F4F4F4;
+    -fx-background-radius: 8px;
+    -fx-padding: 8px 12px;
+    -fx-font-size: 12px;
+    -fx-border-color: rgba(29, 84, 108, 0.4);
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 18, 0.5, 0, 5);
+}
+
+/* ==================== LABEL COLORS ==================== */
+.label-success {
+    -fx-text-fill: #1D546C;
+}
+
+.label-danger {
+    -fx-text-fill: #1D546C;
+}
+
+.label-warning {
+    -fx-text-fill: #F4F4F4;
+}
+
+.label-info {
+    -fx-text-fill: #F4F4F4;
+}
+
+/* ==================== SPACING & UTILITIES ==================== */
+.spacer {
+    -fx-pref-height: 20px;
+}
+
+/* ==================== HOVER EFFECTS ==================== */
+.glass-card:hover {
+    -fx-background-color: rgba(29, 84, 108, 0.4);
+    -fx-border-color: rgba(244, 244, 244, 0.3);
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 30, 0.5, 0, 12);
+}
+
+/* ==================== RESPONSIVE ADJUSTMENTS ==================== */
+@media (max-width: 1024px) {
+    .welcome-label, .page-title {
+        -fx-font-size: 26px;
+    }
+    
+    .card-value {
+        -fx-font-size: 24px;
+    }
+}
+
+/* ==================== ANIMATIONS ==================== */
+@keyframes fadeIn {
+    from { -fx-opacity: 0; }
+    to { -fx-opacity: 1; }
+}
+
+/* ==================== ACCESSIBILITY ==================== */
+*:focused {
+    -fx-focus-color: #1D546C;
+    -fx-faint-focus-color: rgba(29, 84, 108, 0.2);
 }

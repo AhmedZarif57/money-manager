@@ -11,96 +11,89 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.RowConstraints?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
 
-<BorderPane fx:controller="com.controllers.DashboardController"
-            prefHeight="720.0" prefWidth="1280.0"
-            xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1">
+<BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.DashboardController">
 
     <!-- Sidebar -->
     <left>
         <VBox prefWidth="220.0" spacing="10.0" styleClass="sidebar">
             <padding>
-                <Insets top="20" right="16" bottom="20" left="16"/>
+                <Insets bottom="20" left="16" right="16" top="20" />
             </padding>
 
-            <Label text="Money T" styleClass="sidebar-title"/>
+            <Label styleClass="sidebar-title" text="Money Manager">
+            <font>
+               <Font size="8.0" />
+            </font></Label>
 
             <VBox spacing="6.0">
-                <Button fx:id="dashboardButton" text="Dashboard"
-                        maxWidth="Infinity" styleClass="nav-button"/>
-                <Button fx:id="transactionsButton" text="Transactions"
-                        maxWidth="Infinity" styleClass="nav-button"/>
-                <Button fx:id="analyticsButton" text="Analytics"
-                        maxWidth="Infinity" styleClass="nav-button"/>
-                <Button fx:id="budgetButton" text="Budget"
-                        maxWidth="Infinity" styleClass="nav-button"/>
-                <Button fx:id="settingsButton" text="Settings"
-                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="dashboardButton" maxWidth="Infinity" styleClass="nav-button" text="Dashboard" />
+                <Button fx:id="transactionsButton" maxWidth="Infinity" styleClass="nav-button" text="Transactions" />
+                <Button fx:id="analyticsButton" maxWidth="Infinity" styleClass="nav-button" text="Analytics" />
+                <Button fx:id="budgetButton" maxWidth="Infinity" styleClass="nav-button" text="Budget" />
+                <Button fx:id="settingsButton" maxWidth="Infinity" styleClass="nav-button" text="Settings" />
             </VBox>
 
-            <VBox VBox.vgrow="ALWAYS"/>
+            <VBox VBox.vgrow="ALWAYS" />
 
-            <Button fx:id="logoutButton" text="Log out"
-                    maxWidth="Infinity" styleClass="logout-button"/>
+            <Button fx:id="logoutButton" maxWidth="Infinity" styleClass="logout-button" text="Log out" />
         </VBox>
     </left>
 
     <!-- Dashboard content inside the center StackPane -->
     <center>
         <StackPane fx:id="contentRoot" styleClass="content-root">
-            <VBox spacing="16.0" prefWidth="1060.0" prefHeight="720.0">
-                <Label fx:id="welcomeLabel"
-                       text="Welcome, User 👋"
-                       styleClass="welcome-label"/>
+            <VBox prefHeight="720.0" prefWidth="1060.0" spacing="16.0">
+                <Label fx:id="welcomeLabel" prefHeight="74.0" prefWidth="283.0" styleClass="welcome-label" text="Welcome, User 👋" />
 
                 <HBox spacing="16.0">
-                    <VBox styleClass="glass-card" prefWidth="260.0" prefHeight="110.0">
-                        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-                        <Label text="Total Balance" styleClass="card-title"/>
-                        <Label fx:id="totalBalanceLabel" text="0.00$" styleClass="card-value"/>
+                    <VBox prefHeight="110.0" prefWidth="260.0" styleClass="glass-card">
+                        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+                        <Label styleClass="card-title" text="Total Balance" />
+                        <Label fx:id="totalBalanceLabel" styleClass="card-value" text="0.00$" />
                     </VBox>
-                    <VBox styleClass="glass-card" prefWidth="260.0" prefHeight="110.0">
-                        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-                        <Label text="Total Income" styleClass="card-title"/>
-                        <Label fx:id="totalIncomeLabel" text="0.00$" styleClass="card-value"/>
+                    <VBox prefHeight="110.0" prefWidth="260.0" styleClass="glass-card">
+                        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+                        <Label styleClass="card-title" text="Total Income" />
+                        <Label fx:id="totalIncomeLabel" styleClass="card-value" text="0.00$" />
                     </VBox>
-                    <VBox styleClass="glass-card" prefWidth="260.0" prefHeight="110.0">
-                        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-                        <Label text="Total Expenses" styleClass="card-title"/>
-                        <Label fx:id="totalExpensesLabel" text="0.00$" styleClass="card-value"/>
+                    <VBox prefHeight="110.0" prefWidth="260.0" styleClass="glass-card">
+                        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+                        <Label styleClass="card-title" text="Total Expenses" />
+                        <Label fx:id="totalExpensesLabel" styleClass="card-value" text="0.00$" />
                     </VBox>
                 </HBox>
 
                 <GridPane hgap="16.0" vgap="16.0" VBox.vgrow="ALWAYS">
                     <columnConstraints>
-                        <ColumnConstraints percentWidth="50.0"/>
-                        <ColumnConstraints percentWidth="50.0"/>
+                        <ColumnConstraints percentWidth="50.0" />
+                        <ColumnConstraints percentWidth="50.0" />
                     </columnConstraints>
                     <rowConstraints>
-                        <RowConstraints vgrow="ALWAYS"/>
+                        <RowConstraints vgrow="ALWAYS" />
                     </rowConstraints>
 
-                    <VBox GridPane.columnIndex="0" spacing="8.0" styleClass="glass-card">
-                        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-                        <Label text="Your Assets" styleClass="section-title"/>
-                        <LineChart fx:id="assetsChart" VBox.vgrow="ALWAYS">
-                            <xAxis><NumberAxis label="Time"/></xAxis>
-                            <yAxis><NumberAxis label="Amount"/></yAxis>
+                    <VBox spacing="8.0" styleClass="glass-card" GridPane.columnIndex="0">
+                        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+                        <Label styleClass="section-title" text="Your Assets" />
+                        <LineChart fx:id="assetsChart" opacity="0.7" VBox.vgrow="ALWAYS">
+                            <xAxis><NumberAxis label="Time" /></xAxis>
+                            <yAxis><NumberAxis label="Amount" /></yAxis>
                         </LineChart>
                     </VBox>
 
-                    <VBox GridPane.columnIndex="1" spacing="8.0" styleClass="glass-card">
-                        <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
-                        <Label text="Latest Transactions" styleClass="section-title"/>
+                    <VBox spacing="8.0" styleClass="glass-card" GridPane.columnIndex="1">
+                        <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
+                        <Label styleClass="section-title" text="Latest Transactions" />
                         <TableView fx:id="latestTransactionsTable" VBox.vgrow="ALWAYS">
                             <columns>
-                                <TableColumn fx:id="titleColumn" text="Title"/>
-                                <TableColumn fx:id="dateColumn" text="Date"/>
-                                <TableColumn fx:id="amountColumn" text="Amount"/>
+                                <TableColumn fx:id="titleColumn" text="Title" />
+                                <TableColumn fx:id="dateColumn" text="Date" />
+                                <TableColumn fx:id="amountColumn" text="Amount" />
                             </columns>
                         </TableView>
                     </VBox>

@@ -3,33 +3,68 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
-<?import javafx.geometry.Pos?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/16"
+<BorderPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
-            fx:id="budgetRoot"
-            prefWidth="1000" prefHeight="700"
-            styleClass="budget-root">
+            fx:controller="com.controllers.BudgetController"
+            prefHeight="720.0" prefWidth="1280.0"
+            stylesheets="@../css/styles.css">
 
-    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
+    <!-- Sidebar -->
+    <left>
+        <VBox prefWidth="220.0" spacing="10.0" styleClass="sidebar">
+            <padding>
+                <Insets top="20" right="16" bottom="20" left="16"/>
+            </padding>
 
-        <!-- PAGE TITLE + ADD BUTTON -->
-        <HBox alignment="CENTER_LEFT" spacing="20">
-            <Label text="Budgets" styleClass="page-title"/>
-            <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="btnAddBudget" text="Add Budget" styleClass="add-btn"/>
-        </HBox>
+            <Label text="Money T" styleClass="sidebar-title"/>
 
-        <!-- BUDGET TABLE -->
-        <TableView fx:id="budgetTable" prefHeight="600" styleClass="table-dark">
-            <columns>
-                <TableColumn text="Category" prefWidth="200"/>
-                <TableColumn text="Limit" prefWidth="120"/>
-                <TableColumn text="Spent" prefWidth="120"/>
-                <TableColumn text="Remaining" prefWidth="120"/>
-            </columns>
-        </TableView>
+            <VBox spacing="6.0">
+                <Button fx:id="dashboardButton" text="Dashboard"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="transactionsButton" text="Transactions"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="analyticsButton" text="Analytics"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="budgetButton" text="Budget"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="settingsButton" text="Settings"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+            </VBox>
 
-    </VBox>
+            <VBox VBox.vgrow="ALWAYS"/>
 
-</AnchorPane>
+            <Button fx:id="logoutButton" text="Log out"
+                    maxWidth="Infinity" styleClass="logout-button"/>
+        </VBox>
+    </left>
+
+    <!-- Main Content -->
+    <center>
+        <StackPane styleClass="content-root">
+            <VBox spacing="20" prefWidth="1060" prefHeight="720">
+                <padding>
+                    <Insets top="10" right="10" bottom="10" left="10"/>
+                </padding>
+
+                <!-- PAGE TITLE + ADD BUTTON -->
+                <HBox alignment="CENTER_LEFT" spacing="20">
+                    <Label text="Budgets" styleClass="page-title"/>
+                    <Pane HBox.hgrow="ALWAYS"/>
+                    <Button fx:id="btnAddBudget" text="Add Budget" styleClass="add-btn" onAction="#handleAddBudget"/>
+                </HBox>
+
+                <!-- BUDGET TABLE -->
+                <TableView fx:id="budgetTable" prefHeight="600" VBox.vgrow="ALWAYS">
+                    <columns>
+                        <TableColumn text="Category" prefWidth="200"/>
+                        <TableColumn text="Limit" prefWidth="120"/>
+                        <TableColumn text="Spent" prefWidth="120"/>
+                        <TableColumn text="Remaining" prefWidth="120"/>
+                    </columns>
+                </TableView>
+            </VBox>
+        </StackPane>
+    </center>
+
+</BorderPane>

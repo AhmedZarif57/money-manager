@@ -4,6 +4,7 @@ import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
 import javafx.collections.*;
+import com.utils.NavigationManager;
 
 import java.time.LocalDate;
 import java.util.Map;
@@ -17,9 +18,13 @@ public class AnalyticsController {
     @FXML private DatePicker fromDatePicker, toDatePicker;
     @FXML private ComboBox<String> categoryCombo, accountCombo;
     @FXML private Button btnResetFilters;
+    
+    @FXML private Button dashboardButton, transactionsButton, analyticsButton, budgetButton, settingsButton, logoutButton;
 
     @FXML
     public void initialize() {
+        setupNavigation();
+        
         // Load dropdown values
         categoryCombo.getItems().addAll("Food", "Rent", "Transport", "Shopping", "Others");
         accountCombo.getItems().addAll("Cash", "Card", "Bank", "Mobile Banking");
@@ -30,6 +35,30 @@ public class AnalyticsController {
         loadMonthlyIncomeSeries();
 
         setupFilterListeners();
+    }
+
+    private void setupNavigation() {
+        // Highlight active page
+        setActiveButton(analyticsButton);
+        
+        if (dashboardButton != null) dashboardButton.setOnAction(e -> NavigationManager.navigateTo("dashboard.fxml"));
+        if (transactionsButton != null) transactionsButton.setOnAction(e -> NavigationManager.navigateTo("transactions.fxml"));
+        if (analyticsButton != null) analyticsButton.setOnAction(e -> NavigationManager.navigateTo("analytics.fxml"));
+        if (budgetButton != null) budgetButton.setOnAction(e -> NavigationManager.navigateTo("budget.fxml"));
+        if (settingsButton != null) settingsButton.setOnAction(e -> NavigationManager.navigateTo("settings.fxml"));
+        if (logoutButton != null) logoutButton.setOnAction(e -> NavigationManager.navigateTo("login.fxml"));
+    }
+    
+    private void setActiveButton(Button activeButton) {
+        if (dashboardButton != null) dashboardButton.getStyleClass().remove("nav-button-active");
+        if (transactionsButton != null) transactionsButton.getStyleClass().remove("nav-button-active");
+        if (analyticsButton != null) analyticsButton.getStyleClass().remove("nav-button-active");
+        if (budgetButton != null) budgetButton.getStyleClass().remove("nav-button-active");
+        if (settingsButton != null) settingsButton.getStyleClass().remove("nav-button-active");
+        
+        if (activeButton != null && !activeButton.getStyleClass().contains("nav-button-active")) {
+            activeButton.getStyleClass().add("nav-button-active");
+        }
     }
 
     /* ---------------- PIE CHART (1) ---------------- */

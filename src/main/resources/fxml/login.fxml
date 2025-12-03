@@ -1,23 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.control.*?>
 <?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
-<AnchorPane xmlns="http://javafx.com/javafx/16"
+<AnchorPane fx:controller="com.controllers.LoginController"
+            xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
-            prefWidth="600" prefHeight="400"
-            styleClass="budget-root">
+            prefWidth="650" prefHeight="450"
+            styleClass="login-root">
 
-    <VBox spacing="20" layoutX="160" layoutY="80" prefWidth="280">
+    <children>
+        <VBox spacing="12"
+              AnchorPane.leftAnchor="160"
+              AnchorPane.rightAnchor="160"
+              AnchorPane.topAnchor="80"
+              AnchorPane.bottomAnchor="80">
 
-        <Label text="Money Manager" styleClass="page-title"/>
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
 
-        <TextField fx:id="usernameField" promptText="Username"/>
-        <PasswordField fx:id="passwordField" promptText="Password"/>
+            <Label text="Login to Continue" styleClass="title-label"/>
 
-        <Button fx:id="loginButton" text="Login" styleClass="add-btn"/>
+            <TextField fx:id="usernameField" promptText="Username"/>
+            <PasswordField fx:id="passwordField" promptText="Password"/>
 
-    </VBox>
+            <!-- NEW: Create account clickable option -->
+            <Label fx:id="createAccountLabel"
+                   text="Create an account"
+                   style="-fx-text-fill: #3498db; -fx-cursor: hand; -fx-font-size: 12px;" />
 
+            <Button fx:id="loginButton" text="Login" maxWidth="Infinity"/>
+        </VBox>
+    </children>
 </AnchorPane>

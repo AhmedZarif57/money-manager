@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<AnchorPane fx:controller="com.controllers.SignupSuccessfulController"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="1000" prefHeight="700"
+            styleClass="login-root">
+    <children>
+        <VBox alignment="CENTER" spacing="20" prefWidth="1000" prefHeight="700">
+            <Label text="Thank you! Your account has been created." styleClass="success-title"/>
+            <Label text="Please log in to continue." styleClass="success-sub"/>
+            <Button fx:id="btnGoToLogin" text="Go to Login" styleClass="login-btn"/>
+        </VBox>
+    </children>
+</AnchorPane>

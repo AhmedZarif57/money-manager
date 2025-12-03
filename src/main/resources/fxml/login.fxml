@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane fx:controller="com.controllers.LoginController"
+            xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            prefWidth="650" prefHeight="450"
+            styleClass="login-root">
+
+    <children>
+        <VBox spacing="12"
+              AnchorPane.leftAnchor="160"
+              AnchorPane.rightAnchor="160"
+              AnchorPane.topAnchor="80"
+              AnchorPane.bottomAnchor="80">
+
+            <padding>
+                <Insets top="20" right="20" bottom="20" left="20"/>
+            </padding>
+
+            <Label text="Login to Continue" styleClass="title-label"/>
+
+            <TextField fx:id="usernameField" promptText="Username"/>
+            <PasswordField fx:id="passwordField" promptText="Password"/>
+
+            <!-- NEW: Create account clickable option -->
+            <Label fx:id="createAccountLabel"
+                   text="Create an account"
+                   style="-fx-text-fill: #3498db; -fx-cursor: hand; -fx-font-size: 12px;" />
+
+            <Button fx:id="loginButton" text="Login" maxWidth="Infinity"/>
+        </VBox>
+    </children>
+</AnchorPane>

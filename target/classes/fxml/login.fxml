@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<StackPane fx:controller="com.controllers.LoginController"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           styleClass="login-root">
+
+    <VBox alignment="CENTER" spacing="12" maxWidth="400">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
+
+        <Label text="Login to Continue"
+               styleClass="title-label"
+               style="-fx-text-fill: white;"/>
+
+        <TextField fx:id="usernameField"
+                   promptText="Username"
+                   maxWidth="Infinity"/>
+
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       maxWidth="Infinity"/>
+
+        <Label fx:id="createAccountLabel"
+               text="Create an account"
+               style="-fx-text-fill: #3498db; -fx-cursor: hand; -fx-font-size: 12px;" />
+
+        <Button fx:id="loginButton"
+                text="Login"
+                maxWidth="Infinity"
+                styleClass="login-btn"/>
+    </VBox>
+</StackPane>

@@ -160,6 +160,14 @@
     -fx-background-color: #262626;
     -fx-background-radius: 12px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.05, 0, 0);
+    -fx-cursor: hand;
+}
+
+.glass-card:hover {
+    -fx-background-color: #303030;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.1, 0, 3);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
 }
 
 /* Dashboard section titles (Your Assets, Latest Transactions) */
@@ -194,6 +202,14 @@
     -fx-background-color: rgba(255, 107, 53, 0.2);
     -fx-border-color: #FF6B35;
     -fx-border-width: 1px;
+}
+
+.glass-card:has(#totalBalanceLabel):hover,
+.glass-card:has(#totalIncomeLabel):hover,
+.glass-card:has(#totalExpensesLabel):hover {
+    -fx-background-color: rgba(255, 107, 53, 0.3);
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 53, 0.4), 20, 0.2, 0, 3);
 }
 
 

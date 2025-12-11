@@ -7,6 +7,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.TransactionsController"
             fx:id="transactionsRoot"
             styleClass="transactions-root">
 
@@ -20,7 +21,7 @@
         <HBox alignment="CENTER_LEFT" spacing="20">
             <Label text="Transactions" styleClass="page-title"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="btnAddTransaction" text="Add Transaction" styleClass="add-btn"/>
+            <Button fx:id="btnAddTransaction" text="Add Transaction" styleClass="add-btn" onAction="#handleAddTransaction"/>
         </HBox>
 
         <!-- FILTER BAR -->
@@ -36,7 +37,7 @@
             <DatePicker fx:id="filterDate" prefWidth="150"/>
 
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="btnClearFilters" text="Clear" styleClass="clear-btn"/>
+            <Button fx:id="btnClearFilters" text="Clear" styleClass="clear-btn" onAction="#clearFilters"/>
 
         </HBox>
 

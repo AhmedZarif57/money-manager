@@ -1,1 +1,13 @@
+com\controllers\MainLayoutController.class
+com\controllers\BudgetController$Budget.class
+com\controllers\TransactionsController$Transaction.class
+com\controllers\BudgetController.class
+com\controllers\AnalyticsController.class
+com\controllers\LoginController.class
+com\controllers\SettingsController.class
+com\controllers\TransactionsController.class
 com\utils\App.class
+com\controllers\SignupController.class
+com\utils\NavigationManager.class
+com\controllers\DashboardController.class
+com\controllers\SignupSuccessfulController.class

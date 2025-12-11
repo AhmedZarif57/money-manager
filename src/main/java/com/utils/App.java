@@ -43,8 +43,8 @@ public class App extends Application {
         // Set main stage for NavigationManager
         NavigationManager.setStage(stage);
 
-        // Load MainLayout (which includes sidebar)
-        FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/signupsuccessful.fxml"));
+        // Start with Login page
+        FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         Scene scene = new Scene(mainLoader.load(), 1200, 800);
 
         // Get the MainLayoutController (NOT DashboardController!)

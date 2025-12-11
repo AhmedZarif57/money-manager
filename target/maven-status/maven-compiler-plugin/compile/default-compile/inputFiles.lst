@@ -1,9 +1,14 @@
+C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\AnalyticsController.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\BudgetController.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\DashboardController.java
-C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\MainController.java
+C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\LoginController.java
+C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\MainLayoutController.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\SettingsController.java
+C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\SignupController.java
+C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\SignupSuccessfulController.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\controllers\TransactionsController.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\models\Account.java
+C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\models\Transaction.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\models\User.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\utils\App.java
 C:\Users\ahmed\Documents\Environ\Java\money-manager\src\main\java\com\utils\NavigationManager.java

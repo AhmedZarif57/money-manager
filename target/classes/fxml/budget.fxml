@@ -7,27 +7,34 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.BudgetController"
             fx:id="budgetRoot"
-            prefWidth="1000" prefHeight="700"
             styleClass="budget-root">
 
-    <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
+    <VBox spacing="20"
+          AnchorPane.topAnchor="20"
+          AnchorPane.bottomAnchor="20"
+          AnchorPane.leftAnchor="20"
+          AnchorPane.rightAnchor="20">
 
         <!-- PAGE TITLE + ADD BUTTON -->
         <HBox alignment="CENTER_LEFT" spacing="20">
             <Label text="Budgets" styleClass="page-title"/>
             <Pane HBox.hgrow="ALWAYS"/>
-            <Button fx:id="btnAddBudget" text="Add Budget" styleClass="add-btn"/>
+            <Button fx:id="btnAddBudget" text="Add Budget" styleClass="add-btn" onAction="#handleAddBudget"/>
         </HBox>
 
         <!-- BUDGET TABLE -->
-        <TableView fx:id="budgetTable" prefHeight="600" styleClass="table-dark">
+        <TableView fx:id="budgetTable" VBox.vgrow="ALWAYS" styleClass="table-dark">
             <columns>
-                <TableColumn text="Category" prefWidth="200"/>
-                <TableColumn text="Limit" prefWidth="120"/>
-                <TableColumn text="Spent" prefWidth="120"/>
-                <TableColumn text="Remaining" prefWidth="120"/>
+                <TableColumn text="Category" prefWidth="240"/>
+                <TableColumn text="Limit" prefWidth="160"/>
+                <TableColumn text="Spent" prefWidth="160"/>
+                <TableColumn text="Remaining" prefWidth="160"/>
             </columns>
+            <columnResizePolicy>
+                <TableView fx:constant="CONSTRAINED_RESIZE_POLICY"/>
+            </columnResizePolicy>
         </TableView>
 
     </VBox>

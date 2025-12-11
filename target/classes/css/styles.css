@@ -1,171 +1,446 @@
-/* ------------------------------------------------------
-   GLOBAL DARK BACKGROUND
------------------------------------------------------- */
+/* =================================================================
+   GLOBAL VARIABLES & TYPOGRAPHY
+   ================================================================= */
 .root {
-    -fx-background-color: #0d0f15;
-    -fx-font-family: "Segoe UI", sans-serif;
-}
-
-/* ------------------------------------------------------
-   PAGE TITLES
------------------------------------------------------- */
-.page-title {
-    -fx-text-fill: #ffffff;
-    -fx-font-size: 26px;
-    -fx-font-weight: bold;
-}
-
-/* ------------------------------------------------------
-   BUTTONS
------------------------------------------------------- */
-.add-btn, .save-btn, .nav-btn, .clear-btn {
-    -fx-background-color: #1b1f2a;
-    -fx-text-fill: #00eaff;
+    /* Use Montserrat as primary font, with fallbacks */
+    -fx-font-family: 'Montserrat', 'Segoe UI', sans-serif;
     -fx-font-size: 14px;
+    -fx-background-color: #1C1C1C;
+}
+
+/* Additional font weight helpers */
+.bold-text { -fx-font-weight: bold; }
+.semibold-text { -fx-font-weight: 600; }
+.medium-text { -fx-font-weight: 500; }
+
+
+/* =================================================================
+   1. LOGIN / SIGNUP / SIGNUP SUCCESSFUL SCREENS
+   ================================================================= */
+/* Apply gradient background to all auth pages */
+.login-root {
+    -fx-background-color: linear-gradient(to bottom right, #121212, #1C1C1C);
+}
+
+.title-label {
+    -fx-font-size: 28px;
     -fx-font-weight: bold;
-    -fx-background-radius: 10;
+    -fx-text-fill: #FFFFFF;
+    -fx-alignment: center;
+    -fx-padding: 0 0 20 0;
+}
+
+.success-title, .success-sub {
+    -fx-text-fill: #FFFFFF;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 5, 0, 0, 0);
+}
+
+/* Input Fields */
+.text-field, .password-field, .combo-box, .date-picker {
+    -fx-background-color: #262626;
+    -fx-background-radius: 8px;
+    -fx-border-color: #3A3A3A;
+    -fx-border-radius: 8px;
+    -fx-border-width: 1px;
+    -fx-padding: 10 15;
+    -fx-font-size: 14px;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #A0A0A0;
+}
+
+.text-field:focused, .password-field:focused {
+    -fx-border-color: #FF6B35;
+    -fx-effect: dropshadow(gaussian, rgba(255,107,53,0.3), 10, 0, 0, 0);
+}
+
+.combo-box .list-view {
+    -fx-background-color: #262626;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 3);
+}
+
+.combo-box .list-cell {
+    -fx-text-fill: #FFFFFF;
+    -fx-background-color: #262626;
+}
+
+.combo-box .list-cell:filled:hover {
+    -fx-background-color: #383838;
+}
+
+
+/* =================================================================
+   2. GENERAL CONTENT STYLING
+   ================================================================= */
+/* Apply same gradient to other pages */
+.setting-root, .budget-root, .transactions-root, .analytics-root {
+    -fx-background-color: linear-gradient(to bottom right, #121212, #1C1C1C);
+}
+
+.content-root {
+    -fx-background-color: #1C1C1C;
+    -fx-padding: 24px;
+}
+
+.welcome-label, .page-title {
+    -fx-font-size: 32px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+}
+
+
+/* =================================================================
+   3. SIDEBAR STYLING
+   ================================================================= */
+.sidebar {
+    -fx-background-color: #121212;
+    -fx-border-color: #3A3A3A;
+    -fx-border-width: 0 1px 0 0;
+}
+
+.sidebar-title {
+    -fx-font-size: 24px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FF6B35;
+    -fx-padding: 0 0 30 0;
+}
+
+.nav-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 6px;
+    -fx-text-fill: #A0A0A0;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-padding: 12 10;
     -fx-cursor: hand;
-    -fx-padding: 6 12 6 12;
+    -fx-font-weight: 500;
 }
 
-.add-btn:hover, .save-btn:hover, .nav-btn:hover, .clear-btn:hover {
-    -fx-background-color: #263143;
+.nav-button:hover {
+    -fx-background-color: #2A2A2A;
+    -fx-text-fill: #FFFFFF;
 }
 
-/* ------------------------------------------------------
-   TABLES
------------------------------------------------------- */
-.table-dark {
-    -fx-background-color: #141720;
-    -fx-control-inner-background: #141720;
-    -fx-padding: 10;
+/* Active nav button */
+.nav-button.active {
+    -fx-background-color: #262626;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-border-color: #FF6B35;
+    -fx-border-width: 0 0 0 4px;
+    -fx-padding: 12 10 12 6;
 }
 
-.table-dark .column-header-background {
-    -fx-background-color: #10131a;
+/* Restore logout button red styling */
+.logout-button {
+    -fx-background-color: transparent;
+    -fx-background-radius: 10px;
+    -fx-text-fill: #ff4d4d;
+    -fx-font-size: 14px;
+    -fx-alignment: center-left;
+    -fx-padding: 12 20;
+    -fx-cursor: hand;
+    -fx-border-color: #ff4d4d;
+    -fx-border-width: 1px;
+    -fx-border-radius: 10px;
+    -fx-font-weight: 500;
 }
 
-.table-dark .column-header .label {
-    -fx-text-fill: #0077cc; /* Dark blue text for headers */
+.logout-button:hover {
+    -fx-background-color: #ff4d4d;
+    -fx-text-fill: #FFFFFF;
     -fx-font-weight: bold;
 }
 
-.table-row-cell {
-    -fx-background-color: #141720;
-    -fx-text-fill: #00eaff; /* Sky blue text for table rows */
+
+/* =================================================================
+   4. CARD STYLING
+   ================================================================= */
+
+.glass-card {
+    -fx-background-color: #262626;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.05, 0, 0);
+    -fx-cursor: hand;
 }
 
-.table-row-cell:hover {
-    -fx-background-color: #1b1f2a;
+.glass-card:hover {
+    -fx-background-color: #303030;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.6), 20, 0.1, 0, 3);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
 }
 
-.table-row-cell:selected {
-    -fx-background-color: #263143;
-}
-
-/* ------------------------------------------------------
-   FILTER BAR
------------------------------------------------------- */
-.filter-bar {
-    -fx-background-color: #141720;
-    -fx-padding: 10;
-    -fx-background-radius: 10;
-}
-
-.filter-label {
-    -fx-text-fill: #d6d6d6;
-    -fx-font-size: 14px;
-}
-
-/* ------------------------------------------------------
-   DASHBOARD / BUDGET CARDS
------------------------------------------------------- */
-.dashboard-card, .budget-card, .summary-card {
-    -fx-background-color: #141720;
-    -fx-background-radius: 14;
-    -fx-padding: 18;
-    -fx-border-color: #202636;
-    -fx-border-radius: 14;
+/* Dashboard section titles (Your Assets, Latest Transactions) */
+.section-title {
+    -fx-font-size: 18px;
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF !important;
 }
 
 .card-title {
-    -fx-text-fill: #9aa0a6;
     -fx-font-size: 14px;
+    -fx-text-fill: #A0A0A0;
+    -fx-padding: 0 0 8 0;
+    -fx-font-weight: 500;
 }
 
 .card-value {
-    -fx-text-fill: #00eaff;
-    -fx-font-size: 24px;
-    -fx-font-weight: bold;
+    -fx-font-size: 32px;
+    -fx-font-weight: 900;
+    -fx-text-fill: #FFFFFF;
 }
 
-/* ------------------------------------------------------
-   CHART AREAS
------------------------------------------------------- */
-.chart-area {
-    -fx-background-color: #141720;
-    -fx-background-radius: 14;
-    -fx-border-color: #202636;
-    -fx-border-radius: 14;
+/* Dashboard metrics with orange numbers */
+#totalBalanceLabel, #totalIncomeLabel, #totalExpensesLabel {
+    -fx-text-fill: #FF6B35;
 }
 
-/* ------------------------------------------------------
-   SETTINGS
------------------------------------------------------- */
-.setting-label {
-    -fx-text-fill: #d6d6d6;
+/* Metric cards with orange tint */
+.glass-card:has(#totalBalanceLabel),
+.glass-card:has(#totalIncomeLabel),
+.glass-card:has(#totalExpensesLabel) {
+    -fx-background-color: rgba(255, 107, 53, 0.2);
+    -fx-border-color: #FF6B35;
+    -fx-border-width: 1px;
+}
+
+.glass-card:has(#totalBalanceLabel):hover,
+.glass-card:has(#totalIncomeLabel):hover,
+.glass-card:has(#totalExpensesLabel):hover {
+    -fx-background-color: rgba(255, 107, 53, 0.3);
+    -fx-border-width: 2px;
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 53, 0.4), 20, 0.2, 0, 3);
+}
+
+
+/* =================================================================
+   5. BUTTONS
+   ================================================================= */
+
+.login-btn, .add-btn, .save-btn {
+    -fx-background-color: #FF6B35;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #FFFFFF;
     -fx-font-size: 14px;
-}
-
-/* ------------------------------------------------------
-   INPUT FIELDS (TextField, ComboBox, DatePicker)
------------------------------------------------------- */
-.text-field, .combo-box, .date-picker {
-    -fx-background-color: #1b1f2a;       /* dark background */
-    -fx-text-fill: #00eaff;              /* sky blue text */
-    -fx-prompt-text-fill: #00bfff;       /* lighter blue placeholder */
-    -fx-border-color: #202636;
-    -fx-border-radius: 8;
-    -fx-background-radius: 8;
-    -fx-highlight-fill: #00eaff;         /* selection background */
-    -fx-highlight-text-fill: #0d0f15;    /* selected text color */
-    -fx-cursor: text;
-}
-
-/* ComboBox dropdown items */
-.combo-box .list-cell {
-    -fx-background-color: #1b1f2a;
-    -fx-text-fill: #00eaff;
-}
-
-.combo-box .list-cell:hover {
-    -fx-background-color: #263143;
-}
-
-/* ------------------------------------------------------
-   NAVIGATION BUTTONS
------------------------------------------------------- */
-.nav-btn {
-    -fx-background-color: #1b1f2a;
-    -fx-text-fill: #00eaff;
     -fx-font-weight: bold;
-    -fx-background-radius: 8;
+    -fx-padding: 12 30;
+    -fx-cursor: hand;
 }
 
-.nav-btn:hover {
-    -fx-background-color: #263143;
+.login-btn:hover, .add-btn:hover, .save-btn:hover {
+    -fx-background-color: #E55A2B;
 }
 
-/* ------------------------------------------------------
-   BUDGET SPECIFIC LABELS
------------------------------------------------------- */
-.budget-label {
-    -fx-text-fill: #0077cc; /* dark blue text for Category, Limit, Spent, Remaining */
+.clear-btn, .btnResetFilters {
+    -fx-background-color: transparent;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #666666;
+    -fx-font-size: 14px;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-border-color: #C1C1C1;
+    -fx-border-width: 1px;
+    -fx-border-radius: 8px;
+    -fx-font-weight: 500;
 }
 
-/* ------------------------------------------------------
-   TRANSACTIONS TABLE HEADERS
------------------------------------------------------- */
-.transactions-header {
-    -fx-text-fill: #0077cc; /* dark blue text for Date, Category, Type, Account, Amount, Note */
+.clear-btn:hover, .btnResetFilters:hover {
+    -fx-background-color: #f8f9fa;
+    -fx-text-fill: #2B49B3;
+    -fx-border-color: #2B49B3;
+}
+
+
+/* =================================================================
+   6. TABLES
+   ================================================================= */
+.table-dark {
+    -fx-background-color: #262626;
+    -fx-background-radius: 12px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 10, 0, 0, 3);
+}
+
+.table-view {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+/* Table headers */
+.table-view .column-header-background {
+    -fx-background-color: #FF6B35;
+    -fx-border-color: #3A3A3A;
+    -fx-border-width: 0 0 1px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 12 15;
+}
+
+.table-view .column-header .label {
+    -fx-font-weight: bold;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+}
+
+/* Table rows and cells - White text in tables */
+.table-view .table-row-cell {
+    -fx-background-color: rgba(255, 107, 53, 0.05);
+    -fx-border-color: #3A3A3A;
+    -fx-border-width: 0 0 1px 0;
+    -fx-padding: 12 15;
+}
+
+.table-view .table-row-cell:odd {
+    -fx-background-color: rgba(255, 107, 53, 0.08);
+}
+
+.table-view .table-row-cell:selected {
+    -fx-background-color: rgba(255, 107, 53, 0.3);
+}
+
+/* All table cell text should be bold white */
+.table-view .table-cell {
+    -fx-text-fill: #FFFFFF !important;
+    -fx-font-weight: bold !important;
+    -fx-border-color: transparent;
+}
+
+/* Empty table message */
+.table-view .placeholder .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+
+/* =================================================================
+   7. CHARTS
+   ================================================================= */
+.chart {
+    -fx-background-color: transparent;
+    -fx-legend-visible: false;
+}
+
+/* Chart titles (Expenses by Category, Monthly Trends) */
+.chart-title, .chart .title {
+    -fx-text-fill: #FFFFFF !important;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.axis {
+    -fx-tick-label-fill: #FFFFFF;
+    -fx-tick-length: 5;
+}
+
+.axis-label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.chart-plot-background {
+    -fx-background-color: transparent;
+}
+
+.chart-vertical-grid-lines, .chart-horizontal-grid-lines {
+    -fx-stroke: rgba(160, 160, 160, 0.2);
+}
+
+/* Line Chart */
+.chart-series-line {
+    -fx-stroke: #FF6B35;
+    -fx-stroke-width: 3px;
+}
+
+/* Pie Chart */
+.chart-pie-label {
+    -fx-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+/* Bar Chart */
+.chart-bar {
+    -fx-bar-fill: #FF6B35;
+    -fx-background-radius: 3px 3px 0px 0px;
+}
+
+
+/* =================================================================
+   8. FILTER BAR
+   ================================================================= */
+.filter-bar {
+    -fx-background-color: rgba(255, 107, 53, 0.2);
+    -fx-background-radius: 12px;
+    -fx-padding: 15px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 5, 0, 0, 2);
+}
+
+.filter-label {
+    -fx-font-size: 14px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+
+/* =================================================================
+   9. SETTINGS PAGE SPECIFIC FIXES
+   ================================================================= */
+
+/* Settings page labels (Currency, Theme, Notifications) */
+.setting-label {
+    -fx-font-size: 16px;
+    -fx-text-fill: #FFFFFF !important;
+    -fx-font-weight: bold !important;
+    -fx-min-width: 120px;
+}
+
+/* Settings combobox and checkbox text */
+.cmbCurrency, .cmbTheme, .chkNotifications {
+    -fx-text-fill: #FFFFFF;
+}
+
+.combo-box .list-cell:filled:selected {
+    -fx-text-fill: #FFFFFF;
+}
+
+.check-box {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.check-box .box {
+    -fx-background-color: #262626;
+    -fx-border-color: #3A3A3A;
+    -fx-border-radius: 4px;
+    -fx-border-width: 1px;
+}
+
+.check-box:selected .mark {
+    -fx-background-color: #FF6B35;
+}
+
+
+/* =================================================================
+   10. SCROLLBAR
+   ================================================================= */
+.scroll-bar:vertical .thumb,
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: #3A3A3A;
+    -fx-background-radius: 5px;
+}
+
+/* =================================================================
+   11. MAIN LAYOUT SPECIFIC
+   ================================================================= */
+/* Ensure content area fills available space */
+#contentArea {
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
+}
+
+/* Make sure VBox containers expand properly */
+VBox.content-root {
+    -fx-pref-width: 100%;
+    -fx-pref-height: 100%;
 }

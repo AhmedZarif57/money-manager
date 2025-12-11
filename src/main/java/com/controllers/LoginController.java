@@ -43,6 +43,6 @@ public class LoginController {
 
         // In real project → verify user
 
-        NavigationManager.navigateTo("dashboard.fxml");
+        NavigationManager.navigateTo("MainLayout.fxml");
     }
 }

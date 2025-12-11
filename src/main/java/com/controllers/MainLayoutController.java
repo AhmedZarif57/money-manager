@@ -59,26 +59,25 @@ public class MainLayoutController {
                 budgetButton, settingsButton};
 
         for (Button btn : buttons) {
-            btn.getStyleClass().remove("active");
-            btn.getStyleClass().add("nav-button");
+            btn.getStyleClass().remove("nav-button-active");
         }
 
         // Set active button
         switch (pageName) {
             case "dashboard":
-                dashboardButton.getStyleClass().add("active");
+                dashboardButton.getStyleClass().add("nav-button-active");
                 break;
             case "transactions":
-                transactionsButton.getStyleClass().add("active");
+                transactionsButton.getStyleClass().add("nav-button-active");
                 break;
             case "analytics":
-                analyticsButton.getStyleClass().add("active");
+                analyticsButton.getStyleClass().add("nav-button-active");
                 break;
             case "budget":
-                budgetButton.getStyleClass().add("active");
+                budgetButton.getStyleClass().add("nav-button-active");
                 break;
             case "settings":
-                settingsButton.getStyleClass().add("active");
+                settingsButton.getStyleClass().add("nav-button-active");
                 break;
         }
     }

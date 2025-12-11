@@ -7,6 +7,7 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.SettingsController"
             fx:id="settingRoot"
             prefWidth="1000" prefHeight="700"
             styleClass="setting-root">
@@ -36,7 +37,7 @@
 
         <Pane VBox.vgrow="ALWAYS"/>
 
-        <Button fx:id="btnSaveSettings" text="Save Settings" styleClass="save-btn"/>
+        <Button fx:id="btnSaveSettings" text="Save Settings" styleClass="save-btn" onAction="#saveSettings"/>
 
     </VBox>
 

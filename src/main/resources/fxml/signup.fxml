@@ -5,29 +5,38 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.TextField?>
-<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:controller="com.controllers.SignupController"
-            prefHeight="450.0" prefWidth="650.0"
-            xmlns="http://javafx.com/javafx/17"
-            xmlns:fx="http://javafx.com/fxml/1">
-    <children>
-        <VBox spacing="12.0" AnchorPane.leftAnchor="160.0"
-              AnchorPane.rightAnchor="160.0"
-              AnchorPane.topAnchor="80.0" AnchorPane.bottomAnchor="80.0">
-            <padding>
-                <Insets top="20" right="20" bottom="20" left="20"/>
-            </padding>
+<StackPane fx:controller="com.controllers.SignupController"
+           xmlns="http://javafx.com/javafx/17"
+           xmlns:fx="http://javafx.com/fxml/1"
+           styleClass="login-root">
 
-            <Label text="Create Account" styleClass="title-label"/>
+    <VBox alignment="CENTER" spacing="12" maxWidth="400">
+        <padding>
+            <Insets top="40" right="40" bottom="40" left="40"/>
+        </padding>
 
-            <TextField fx:id="usernameField" promptText="Username"/>
-            <PasswordField fx:id="passwordField" promptText="Password"/>
-            <PasswordField fx:id="confirmPasswordField"
-                           promptText="Confirm Password"/>
+        <Label text="Create Account"
+               styleClass="title-label"
+               style="-fx-text-fill: white; -fx-font-family: 'Montserrat'; -fx-font-weight: bold;"/>
 
-            <Button fx:id="signupButton" text="Sign Up" maxWidth="Infinity"/>
-        </VBox>
-    </children>
-</AnchorPane>
+        <TextField fx:id="usernameField"
+                   promptText="Username"
+                   maxWidth="Infinity"/>
+
+        <PasswordField fx:id="passwordField"
+                       promptText="Password"
+                       maxWidth="Infinity"/>
+
+        <PasswordField fx:id="confirmPasswordField"
+                       promptText="Confirm Password"
+                       maxWidth="Infinity"/>
+
+        <Button fx:id="signupButton"
+                text="Sign Up"
+                maxWidth="Infinity"
+                styleClass="login-btn"/>
+    </VBox>
+</StackPane>

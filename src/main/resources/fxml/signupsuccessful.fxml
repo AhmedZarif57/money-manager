@@ -6,13 +6,23 @@
 <AnchorPane fx:controller="com.controllers.SignupSuccessfulController"
             xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
-            prefWidth="1000" prefHeight="700"
             styleClass="login-root">
-    <children>
-        <VBox alignment="CENTER" spacing="20" prefWidth="1000" prefHeight="700">
-            <Label text="Thank you! Your account has been created." styleClass="success-title"/>
-            <Label text="Please log in to continue." styleClass="success-sub"/>
-            <Button fx:id="btnGoToLogin" text="Go to Login" styleClass="login-btn"/>
-        </VBox>
-    </children>
+
+    <VBox alignment="CENTER" spacing="20"
+          AnchorPane.topAnchor="0"
+          AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0"
+          AnchorPane.rightAnchor="0">
+
+        <Label text="Thank you! Your account has been created."
+               style="-fx-font-size: 28px; -fx-font-weight: bold; -fx-text-fill: white; -fx-font-family: 'Montserrat'; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.3), 2, 0, 1, 1);"/>
+
+        <Label text="Please log in to continue."
+               style="-fx-font-size: 16px; -fx-text-fill: white; -fx-font-family: 'Montserrat'; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.2), 1, 0, 1, 1);"/>
+
+        <Button fx:id="btnGoToLogin"
+                text="Go to Login"
+                styleClass="login-btn"
+                prefWidth="200"/>
+    </VBox>
 </AnchorPane>

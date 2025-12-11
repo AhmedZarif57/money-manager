@@ -4,14 +4,23 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="4f73bf2b-ef13-4f77-8566-419254f97378" name="Changes" comment="rewrote everything according to change of design demand">
+    <list default="true" id="4f73bf2b-ef13-4f77-8566-419254f97378" name="Changes" comment="Sturture build properly">
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/controllers/MainLayoutController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/fxml/MainLayout.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controllers/DashboardController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/DashboardController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controllers/LoginController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/LoginController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/controllers/SettingsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/SettingsController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utils/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utils/App.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/utils/NavigationManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/utils/NavigationManager.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/css/styles.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/css/styles.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/analytics.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/analytics.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/budget.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/budget.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/dashboard.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/dashboard.fxml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/login.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/signup.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/signup.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/signupsuccessful.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/signupsuccessful.fxml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/fxml/transactions.fxml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/fxml/transactions.fxml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -154,7 +163,15 @@
       <option name="project" value="LOCAL" />
       <updated>1764783790328</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Sturture build properly">
+      <option name="closed" value="true" />
+      <created>1764791401634</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764791401634</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -174,7 +191,8 @@
     <MESSAGE value="fixed fxml files" />
     <MESSAGE value="fixed everything" />
     <MESSAGE value="rewrote everything according to change of design demand" />
-    <option name="LAST_COMMIT_MESSAGE" value="rewrote everything according to change of design demand" />
+    <MESSAGE value="Sturture build properly" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sturture build properly" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/money_manager$Run.ic" NAME="Run Coverage Results" MODIFIED="1764601532555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

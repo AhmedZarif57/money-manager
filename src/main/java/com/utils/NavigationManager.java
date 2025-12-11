@@ -23,6 +23,12 @@ public class NavigationManager {
             Parent root = loader.load();
 
             Scene scene = new Scene(root);
+
+            // Preserve CSS if it exists
+            if (primaryStage.getScene() != null && !primaryStage.getScene().getStylesheets().isEmpty()) {
+                scene.getStylesheets().addAll(primaryStage.getScene().getStylesheets());
+            }
+
             primaryStage.setScene(scene);
             primaryStage.show();
 

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane xmlns="http://javafx.com/javafx/17"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.MainLayoutController">
+
+    <!-- Left: Sidebar -->
+    <left>
+        <VBox prefWidth="220" spacing="10" styleClass="sidebar">
+            <padding>
+                <Insets top="20" right="16" bottom="20" left="16"/>
+            </padding>
+
+            <Label text="Money Manager" styleClass="sidebar-title"/>
+
+            <VBox spacing="6">
+                <Button fx:id="dashboardButton" text="Dashboard"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="transactionsButton" text="Transactions"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="analyticsButton" text="Analytics"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="budgetButton" text="Budget"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+                <Button fx:id="settingsButton" text="Settings"
+                        maxWidth="Infinity" styleClass="nav-button"/>
+            </VBox>
+
+            <VBox VBox.vgrow="ALWAYS"/>
+
+            <Button fx:id="logoutButton" text="Log out"
+                    maxWidth="Infinity" styleClass="logout-button"/>
+        </VBox>
+    </left>
+
+    <!-- Center: Dynamic Content Area -->
+    <center>
+        <StackPane fx:id="contentArea"/>
+    </center>
+</BorderPane>

@@ -4,6 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
+<<<<<<< Updated upstream
     <list default="true" id="4f73bf2b-ef13-4f77-8566-419254f97378" name="Changes" comment="fixed everything">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/controllers/AnalyticsController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/controllers/AnalyticsController.java" afterDir="false" />
@@ -33,6 +34,9 @@
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/createdFiles.lst" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" beforeDir="false" afterPath="$PROJECT_DIR$/target/maven-status/maven-compiler-plugin/compile/default-compile/inputFiles.lst" afterDir="false" />
     </list>
+=======
+    <list default="true" id="4f73bf2b-ef13-4f77-8566-419254f97378" name="Changes" comment="final ui layout" />
+>>>>>>> Stashed changes
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -163,7 +167,35 @@
       <option name="project" value="LOCAL" />
       <updated>1764607313429</updated>
     </task>
+<<<<<<< Updated upstream
     <option name="localTasksCounter" value="5" />
+=======
+    <task id="LOCAL-00005" summary="rewrote everything according to change of design demand">
+      <option name="closed" value="true" />
+      <created>1764783790328</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1764783790328</updated>
+    </task>
+    <task id="LOCAL-00006" summary="Sturture build properly">
+      <option name="closed" value="true" />
+      <created>1764791401634</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1764791401634</updated>
+    </task>
+    <task id="LOCAL-00007" summary="final ui layout">
+      <option name="closed" value="true" />
+      <created>1765479554988</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1765479554988</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
+>>>>>>> Stashed changes
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -182,7 +214,14 @@
     <MESSAGE value="fixed fxml files but the I have doubts on the App.java it's still not running" />
     <MESSAGE value="fixed fxml files" />
     <MESSAGE value="fixed everything" />
+<<<<<<< Updated upstream
     <option name="LAST_COMMIT_MESSAGE" value="fixed everything" />
+=======
+    <MESSAGE value="rewrote everything according to change of design demand" />
+    <MESSAGE value="Sturture build properly" />
+    <MESSAGE value="final ui layout" />
+    <option name="LAST_COMMIT_MESSAGE" value="final ui layout" />
+>>>>>>> Stashed changes
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/money_manager$Run.ic" NAME="Run Coverage Results" MODIFIED="1764601532555" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="true" />

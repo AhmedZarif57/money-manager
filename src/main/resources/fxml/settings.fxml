@@ -10,7 +10,16 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
+<<<<<<< Updated upstream
 <BorderPane prefHeight="720.0" prefWidth="1280.0" stylesheets="@../css/styles.css" xmlns="http://javafx.com/javafx/25" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.controllers.SettingsController">
+=======
+<AnchorPane xmlns="http://javafx.com/javafx/16"
+            xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.SettingsController"
+            fx:id="settingRoot"
+            prefWidth="1000" prefHeight="700"
+            styleClass="setting-root">
+>>>>>>> Stashed changes
 
     <!-- Sidebar -->
     <left>
@@ -43,10 +52,14 @@
                     <Insets bottom="30" left="30" right="30" top="30" />
                 </padding>
 
+<<<<<<< Updated upstream
                 <!-- PAGE TITLE -->
                 <HBox alignment="CENTER_LEFT" spacing="20">
                     <Label styleClass="page-title" text="Settings" />
                 </HBox>
+=======
+        <Button fx:id="btnSaveSettings" text="Save Settings" styleClass="save-btn" onAction="#saveSettings"/>
+>>>>>>> Stashed changes
 
                 <!-- SETTINGS OPTIONS -->
                 <VBox prefWidth="600" spacing="20" styleClass="glass-card">

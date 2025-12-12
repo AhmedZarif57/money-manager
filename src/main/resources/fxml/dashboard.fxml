@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.geometry.Insets?>
+<<<<<<< Updated upstream
 <?import javafx.scene.chart.LineChart?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.control.Button?>
+=======
+    <?import javafx.scene.chart.BarChart?>
+    <?import javafx.scene.chart.CategoryAxis?>
+    <?import javafx.scene.chart.NumberAxis?>
+>>>>>>> Stashed changes
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
@@ -50,6 +56,7 @@
             <VBox prefHeight="720.0" prefWidth="1060.0" spacing="16.0">
                 <Label fx:id="welcomeLabel" prefHeight="74.0" prefWidth="283.0" styleClass="welcome-label" text="Welcome, User 👋" />
 
+<<<<<<< Updated upstream
                 <HBox spacing="16.0">
                     <VBox prefHeight="110.0" prefWidth="260.0" styleClass="glass-card">
                         <padding><Insets bottom="16" left="16" right="16" top="16" /></padding>
@@ -67,6 +74,16 @@
                         <Label fx:id="totalExpensesLabel" styleClass="card-value" text="0.00$" />
                     </VBox>
                 </HBox>
+=======
+        <VBox GridPane.columnIndex="0" spacing="8.0" styleClass="glass-card">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="Your Assets" styleClass="section-title"/>
+            <BarChart fx:id="assetsChart" VBox.vgrow="ALWAYS">
+                <xAxis><CategoryAxis label="Category"/></xAxis>
+                <yAxis><NumberAxis label="Amount"/></yAxis>
+            </BarChart>
+        </VBox>
+>>>>>>> Stashed changes
 
                 <GridPane hgap="16.0" vgap="16.0" VBox.vgrow="ALWAYS">
                     <columnConstraints>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.chart.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.geometry.Pos?>
+
+<VBox xmlns="http://javafx.com/javafx/16"
+      xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.controllers.AnalyticsController"
+      spacing="20" styleClass="content-root">
+
+    <!-- PAGE TITLE + FILTERS -->
+    <HBox alignment="CENTER_LEFT" spacing="20" HBox.hgrow="ALWAYS">
+        <Label text="Analytics" styleClass="page-title"/>
+        <Pane HBox.hgrow="ALWAYS"/>
+        <DatePicker fx:id="fromDatePicker" promptText="From" prefWidth="130"/>
+        <DatePicker fx:id="toDatePicker" promptText="To" prefWidth="130"/>
+        <ComboBox fx:id="categoryCombo" promptText="Category" prefWidth="130"/>
+        <ComboBox fx:id="accountCombo" promptText="Account" prefWidth="130"/>
+        <Button fx:id="btnResetFilters" text="Reset" prefWidth="80" styleClass="clear-btn"/>
+    </HBox>
+
+    <!-- MAIN CHART AREA -->
+    <GridPane hgap="12" vgap="12" VBox.vgrow="ALWAYS">
+        <columnConstraints>
+            <ColumnConstraints percentWidth="40"/>
+            <ColumnConstraints percentWidth="60"/>
+        </columnConstraints>
+        <rowConstraints>
+            <RowConstraints vgrow="ALWAYS"/>
+        </rowConstraints>
+
+        <!-- PIE CHART -->
+        <VBox GridPane.columnIndex="0" spacing="10" styleClass="glass-card">
+            <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+            <Label text="Expenses by Category" styleClass="section-title"/>
+            <PieChart fx:id="expensePieChart" VBox.vgrow="ALWAYS"/>
+        </VBox>
+
+        <!-- LINE CHARTS -->
+        <VBox GridPane.columnIndex="1" spacing="16">
+            <VBox spacing="10" styleClass="glass-card" VBox.vgrow="ALWAYS">
+                <padding><Insets top="16" right="16" bottom="16" left="16"/></padding>
+                <Label text="Monthly Trends" styleClass="section-title"/>
+
+                <VBox spacing="5" VBox.vgrow="ALWAYS">
+                    <Label text="Expenses by Month" styleClass="card-title"/>
+                    <LineChart fx:id="expensesLineChart" VBox.vgrow="ALWAYS">
+                        <xAxis><CategoryAxis label="Month"/></xAxis>
+                        <yAxis><NumberAxis label="Amount"/></yAxis>
+                    </LineChart>
+                </VBox>
+
+                <VBox spacing="5" VBox.vgrow="ALWAYS">
+                    <Label text="Income by Month" styleClass="card-title"/>
+                    <LineChart fx:id="incomeLineChart" VBox.vgrow="ALWAYS">
+                        <xAxis><CategoryAxis label="Month"/></xAxis>
+                        <yAxis><NumberAxis label="Amount"/></yAxis>
+                    </LineChart>
+                </VBox>
+            </VBox>
+        </VBox>
+    </GridPane>
+</VBox>

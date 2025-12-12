@@ -14,6 +14,7 @@ public class NavigationManager {
         primaryStage = stage;
     }
 
+<<<<<<< Updated upstream
     // Load an FXML and show it while preserving window state
     public static void navigateTo(String fxmlName) {
         try {
@@ -41,6 +42,54 @@ public class NavigationManager {
             }
             primaryStage.setMaximized(wasMaximized);
             
+=======
+    public static Stage getStage() {
+        return primaryStage;
+    }
+
+    // Load an FXML and show it
+    public static void navigateTo(String fxmlName) {
+        try {
+            // If navigating to dashboard, load MainLayout and then request it to load dashboard
+            if (fxmlName.equals("dashboard.fxml") || fxmlName.equals("transactions.fxml") || 
+                fxmlName.equals("analytics.fxml") || fxmlName.equals("budget.fxml") || fxmlName.equals("settings.fxml")) {
+                
+                // Load MainLayout as app shell if not already loaded
+                if (primaryStage.getScene() == null || 
+                    !primaryStage.getScene().getRoot().getStyleClass().contains("main-layout-root")) {
+                    FXMLLoader mainLoader = new FXMLLoader(NavigationManager.class.getResource("/fxml/MainLayout.fxml"));
+                    Parent mainRoot = mainLoader.load();
+                    Scene mainScene = new Scene(mainRoot);
+                    primaryStage.setScene(mainScene);
+                }
+                
+                // Get the page name (e.g., "dashboard.fxml" → "dashboard")
+                String pageName = fxmlName.replace(".fxml", "");
+                
+                // Tell MainLayoutController to load the page
+                try {
+                    Object mainController = primaryStage.getScene().getRoot().getUserData();
+                    if (mainController == null) {
+                        // Try to get from FXMLLoader context
+                        FXMLLoader mainLoader = new FXMLLoader(NavigationManager.class.getResource("/fxml/MainLayout.fxml"));
+                        mainLoader.load();
+                        mainController = mainLoader.getController();
+                    }
+                    if (mainController != null) {
+                        mainController.getClass().getMethod("loadPage", String.class).invoke(mainController, pageName);
+                    }
+                } catch (Exception e) {
+                    System.out.println("Could not invoke MainLayoutController.loadPage: " + e.getMessage());
+                }
+            } else {
+                // For login, signup, etc., load directly
+                FXMLLoader loader = new FXMLLoader(NavigationManager.class.getResource("/fxml/" + fxmlName));
+                Parent root = loader.load();
+                Scene scene = new Scene(root);
+                primaryStage.setScene(scene);
+            }
+
+>>>>>>> Stashed changes
             primaryStage.show();
 
         } catch (Exception e) {

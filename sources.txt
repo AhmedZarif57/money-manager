@@ -1,0 +1,16 @@
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\AnalyticsController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\BudgetController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\DashboardController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\LoginController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\MainLayoutController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\SettingsController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\SignupController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\SignupSuccessfulController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\controllers\TransactionsController.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\models\Account.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\models\Budget.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\models\Transaction.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\models\User.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\utils\App.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\utils\DataStore.java
+C:\Users\User\Downloads\lastOneIG\money-manager\src\main\java\com\utils\NavigationManager.java

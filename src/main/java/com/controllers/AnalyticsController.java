@@ -1,5 +1,7 @@
 package com.controllers;
 
+import com.models.Transaction;
+import com.utils.DataStore;
 import javafx.fxml.FXML;
 import javafx.scene.chart.*;
 import javafx.scene.control.*;
@@ -7,6 +9,8 @@ import javafx.collections.*;
 import com.utils.NavigationManager;
 
 import java.time.LocalDate;
+import java.time.YearMonth;
+import java.util.HashMap;
 import java.util.Map;
 
 public class AnalyticsController {
@@ -21,22 +25,23 @@ public class AnalyticsController {
     
     @FXML private Button dashboardButton, transactionsButton, analyticsButton, budgetButton, settingsButton, logoutButton;
 
+    private final DataStore store = DataStore.getInstance();
+
     @FXML
     public void initialize() {
         setupNavigation();
         
         // Load dropdown values
-        categoryCombo.getItems().addAll("Food", "Rent", "Transport", "Shopping", "Others");
-        accountCombo.getItems().addAll("Cash", "Card", "Bank", "Mobile Banking");
+        categoryCombo.getItems().addAll("Salary", "Rent", "Groceries", "Utilities", "Transport", "Entertainment");
+        accountCombo.getItems().addAll("Main Account", "Card", "Bank", "Mobile Banking");
 
-        // Load initial charts
-        loadPieChartData(sampleExpenseCategoryData());
-        loadMonthlyExpenseSeries();
-        loadMonthlyIncomeSeries();
+        // Load initial charts with real data
+        loadRealData();
 
         setupFilterListeners();
     }
 
+<<<<<<< Updated upstream
     private void setupNavigation() {
         // Highlight active page
         setActiveButton(analyticsButton);
@@ -59,6 +64,21 @@ public class AnalyticsController {
         if (activeButton != null && !activeButton.getStyleClass().contains("nav-button-active")) {
             activeButton.getStyleClass().add("nav-button-active");
         }
+=======
+    private void loadRealData() {
+        // Pie chart: expense breakdown by category
+        Map<String, Double> expensesByCategory = new HashMap<>();
+        store.getTransactions().stream()
+                .filter(t -> t.getType() == Transaction.Type.EXPENSE)
+                .forEach(t -> expensesByCategory.merge(t.getTitle(), t.getAmount(), Double::sum));
+        loadPieChartData(expensesByCategory);
+
+        // Monthly expenses
+        loadMonthlyExpenseSeries();
+
+        // Monthly income
+        loadMonthlyIncomeSeries();
+>>>>>>> Stashed changes
     }
 
     /* ---------------- PIE CHART (1) ---------------- */
@@ -68,29 +88,23 @@ public class AnalyticsController {
         expensePieChart.setData(pieData);
     }
 
-    private Map<String, Double> sampleExpenseCategoryData() {
-        return Map.of(
-                "Food", 2500.0,
-                "Rent", 3000.0,
-                "Transport", 900.0,
-                "Shopping", 1800.0,
-                "Others", 700.0
-        );
-    }
-
     /* ---------------- MONTHLY EXPENSES (2) ---------------- */
     private void loadMonthlyExpenseSeries() {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Expenses");
 
-        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
-        double[] data = {800,700,900,850,1000,1100,950,1200,900,880,1050,970};
-
-        for (int i = 0; i < months.length; i++) {
-            series.getData().add(new XYChart.Data<>(months[i], data[i]));
+        java.time.YearMonth currentMonth = java.time.YearMonth.now();
+        for (int i = 11; i >= 0; i--) {
+            java.time.YearMonth month = currentMonth.minusMonths(i);
+            double monthExpense = store.getTransactions().stream()
+                    .filter(t -> java.time.YearMonth.from(t.getDate()).equals(month) && t.getType() == Transaction.Type.EXPENSE)
+                    .mapToDouble(Transaction::getAmount).sum();
+            String monthLabel = month.format(java.time.format.DateTimeFormatter.ofPattern("MMM"));
+            series.getData().add(new XYChart.Data<>(monthLabel, monthExpense));
         }
 
-        expensesLineChart.getData().setAll(series);
+        expensesLineChart.getData().clear();
+        expensesLineChart.getData().add(series);
     }
 
     /* ---------------- MONTHLY INCOME (3) ---------------- */
@@ -98,16 +112,19 @@ public class AnalyticsController {
         XYChart.Series<String, Number> series = new XYChart.Series<>();
         series.setName("Income");
 
-        String[] months = {"Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"};
-        double[] data = {1200,1000,1300,1250,1400,1500,1450,1600,1380,1420,1500,1480};
-
-        for (int i = 0; i < months.length; i++) {
-            series.getData().add(new XYChart.Data<>(months[i], data[i]));
+        java.time.YearMonth currentMonth = java.time.YearMonth.now();
+        for (int i = 11; i >= 0; i--) {
+            java.time.YearMonth month = currentMonth.minusMonths(i);
+            double monthIncome = store.getTransactions().stream()
+                    .filter(t -> java.time.YearMonth.from(t.getDate()).equals(month) && t.getType() == Transaction.Type.INCOME)
+                    .mapToDouble(Transaction::getAmount).sum();
+            String monthLabel = month.format(java.time.format.DateTimeFormatter.ofPattern("MMM"));
+            series.getData().add(new XYChart.Data<>(monthLabel, monthIncome));
         }
 
-        incomeLineChart.getData().setAll(series);
+        incomeLineChart.getData().clear();
+        incomeLineChart.getData().add(series);
     }
-
 
     /* ---------------- FILTER SYSTEM (7) ---------------- */
     private void setupFilterListeners() {
@@ -122,10 +139,7 @@ public class AnalyticsController {
             categoryCombo.getSelectionModel().clearSelection();
             accountCombo.getSelectionModel().clearSelection();
 
-            // reload original charts
-            loadPieChartData(sampleExpenseCategoryData());
-            loadMonthlyExpenseSeries();
-            loadMonthlyIncomeSeries();
+            loadRealData();
         });
     }
 
@@ -138,10 +152,7 @@ public class AnalyticsController {
         System.out.println("Applying filters → From: " + from + " | To: " + to +
                 " | Category: " + category + " | Account: " + account);
 
-        // TODO: Replace with YOUR actual filtered database logic
-        // currently it just reloads charts unchanged
-        loadPieChartData(sampleExpenseCategoryData());
-        loadMonthlyExpenseSeries();
-        loadMonthlyIncomeSeries();
+        // Reload with real filtered data
+        loadRealData();
     }
 }

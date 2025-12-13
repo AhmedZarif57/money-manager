@@ -50,15 +50,18 @@ public class DashboardController {
         expenseSeries.setName("Expenses");
 
         // Get transactions for last 12 months and group by month
+        String currentUserId = store.getCurrentUser() != null ? store.getCurrentUser().getId() : null;
         java.time.YearMonth currentMonth = java.time.YearMonth.now();
         for (int i = 11; i >= 0; i--) {
             java.time.YearMonth month = currentMonth.minusMonths(i);
             String monthLabel = month.format(java.time.format.DateTimeFormatter.ofPattern("MMM"));
             
             double monthIncome = store.getTransactions().stream()
+                    .filter(t -> t.getUserId() != null && t.getUserId().equals(currentUserId))
                     .filter(t -> java.time.YearMonth.from(t.getDate()).equals(month) && t.getType() == Transaction.Type.INCOME)
                     .mapToDouble(Transaction::getAmount).sum();
             double monthExpense = store.getTransactions().stream()
+                    .filter(t -> t.getUserId() != null && t.getUserId().equals(currentUserId))
                     .filter(t -> java.time.YearMonth.from(t.getDate()).equals(month) && t.getType() == Transaction.Type.EXPENSE)
                     .mapToDouble(Transaction::getAmount).sum();
             
@@ -158,11 +161,13 @@ public class DashboardController {
             }
         });
 
-        // Filter transactions by selected month
+        // Filter transactions by selected month and current user
+        String currentUserId = store.getCurrentUser() != null ? store.getCurrentUser().getId() : null;
         int selectedMonth = SettingsController.getSelectedMonth();
         int currentYear = java.time.LocalDate.now().getYear();
         ObservableList<Transaction> list = FXCollections.observableArrayList(
             store.getTransactions().stream()
+                .filter(t -> t.getUserId() != null && t.getUserId().equals(currentUserId))
                 .filter(t -> t.getDate().getMonthValue() == selectedMonth && t.getDate().getYear() == currentYear)
                 .collect(java.util.stream.Collectors.toList())
         );

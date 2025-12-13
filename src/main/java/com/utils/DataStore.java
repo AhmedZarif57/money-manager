@@ -643,4 +643,21 @@ public class DataStore {
             .filter(a -> a.getUserId() != null && a.getUserId().equals(currentUser.getId()))
             .mapToDouble(Account::getBalance).sum();
     }
+    
+    // Methods to properly clear user data for reset functionality
+    public void clearUserTransactions(String userId) {
+        transactions.removeIf(t -> t.getUserId() != null && t.getUserId().equals(userId));
+    }
+    
+    public void clearUserBudgets(String userId) {
+        budgets.removeIf(b -> b.getUserId() != null && b.getUserId().equals(userId));
+    }
+    
+    public void resetUserAccountBalances(String userId) {
+        for (Account account : accounts) {
+            if (account.getUserId() != null && account.getUserId().equals(userId)) {
+                account.setBalance(0.0);
+            }
+        }
+    }
 }

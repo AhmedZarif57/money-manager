@@ -204,7 +204,8 @@ public class SettingsController {
             String newPass = passwords[1];
             String confirmPass = passwords[2];
             
-            if (!currentUser.getPassword().equals(currentPass)) {
+            // Verify current password using PasswordSecurity
+            if (!com.utils.PasswordSecurity.verifyPassword(currentPass, currentUser.getPassword())) {
                 showAlert("Error", "Current password is incorrect.", Alert.AlertType.ERROR);
                 return;
             }
@@ -262,18 +263,12 @@ public class SettingsController {
         
         java.util.Optional<ButtonType> result = confirmAlert.showAndWait();
         if (result.isPresent() && result.get() == ButtonType.OK) {
-            // Reset all accounts to 0
-            for (com.models.Account account : store.getAccounts()) {
-                if (account.getUserId().equals(currentUser.getId())) {
-                    account.setBalance(0.0);
-                }
-            }
+            String userId = currentUser.getId();
             
-            // Delete all transactions
-            store.getTransactions().removeIf(t -> t.getUserId().equals(currentUser.getId()));
-            
-            // Delete all budgets
-            store.getBudgets().removeIf(b -> b.getUserId().equals(currentUser.getId()));
+            // Clear all user data using DataStore methods
+            store.resetUserAccountBalances(userId);
+            store.clearUserTransactions(userId);
+            store.clearUserBudgets(userId);
             
             // Save changes
             store.saveAccounts();
@@ -281,6 +276,9 @@ public class SettingsController {
             store.saveBudgets();
             
             showAlert("Data Reset", "All your data has been reset successfully.", Alert.AlertType.INFORMATION);
+            
+            // Refresh the UI by navigating to dashboard to show the reset data
+            com.utils.NavigationManager.navigateTo("dashboard.fxml");
         }
     }
     

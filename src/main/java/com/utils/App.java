@@ -3,6 +3,7 @@ package com.utils;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
 
@@ -10,45 +11,34 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // Load Montserrat font
+        // Load Roboto font
         try {
-            String[] fontPaths = {
-                    "/fonts/Montserrat-Regular.ttf",
-                    "/css/fonts/Montserrat-Regular.ttf",
-                    "/fxml/fonts/Montserrat-Regular.ttf",
-                    "fonts/Montserrat-Regular.ttf"
-            };
-
-            boolean fontLoaded = false;
-            for (String fontPath : fontPaths) {
-                try {
-                    Font font = Font.loadFont(getClass().getResourceAsStream(fontPath), 14);
-                    if (font != null) {
-                        System.out.println("Montserrat font loaded from: " + fontPath);
-                        fontLoaded = true;
-                        break;
-                    }
-                } catch (Exception e) {
-                    // Try next path
-                }
-            }
-
-            if (!fontLoaded) {
-                System.out.println("Montserrat font not found in resources. Using system fallback.");
+            Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/Roboto-Regular.ttf"), 14);
+            if (font != null) {
+                System.out.println("Roboto font loaded successfully from: /fonts/Roboto-Regular.ttf");
+            } else {
+                System.out.println("Roboto font could not be loaded. Using system fallback.");
             }
         } catch (Exception e) {
-            System.err.println("Error loading Montserrat font: " + e.getMessage());
+            System.err.println("Error loading Roboto font: " + e.getMessage());
+            System.out.println("Using system fallback font.");
         }
 
+        // Load application logo
+        try {
+            Image logo = new Image(getClass().getResourceAsStream("/images/Logo.png"));
+            stage.getIcons().add(logo);
+            System.out.println("Application logo loaded successfully");
+        } catch (Exception e) {
+            System.err.println("Could not load application logo: " + e.getMessage());
+        }
+        
         // Set main stage for NavigationManager
         NavigationManager.setStage(stage);
 
-        // Load MainLayout (which includes sidebar)
-        FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/signupsuccessful.fxml"));
+        // Load Login page as the application entry point
+        FXMLLoader mainLoader = new FXMLLoader(getClass().getResource("/fxml/login.fxml"));
         Scene scene = new Scene(mainLoader.load(), 1200, 800);
-
-        // Get the MainLayoutController (NOT DashboardController!)
-        // Remove this line or fix the casting issue
 
         // Load CSS
         try {
@@ -65,14 +55,34 @@ public class App extends Application {
         }
 
         stage.setScene(scene);
-        stage.setTitle("Money Manager");
+        stage.setTitle("Smart Money Manager");
         stage.setResizable(true);
         stage.setMaximized(false);
+        
+        // Remember window size and position
+        stage.widthProperty().addListener((obs, oldVal, newVal) -> {
+            if (stage.isShowing() && !stage.isMaximized()) {
+                // Store width for next launch
+            }
+        });
+        stage.heightProperty().addListener((obs, oldVal, newVal) -> {
+            if (stage.isShowing() && !stage.isMaximized()) {
+                // Store height for next launch
+            }
+        });
+        
         stage.show();
 
-        // Optional: If you need to access MainLayoutController later
-        // MainLayoutController mainController = mainLoader.getController();
-        // mainController.loadInitialPage("dashboard");
+        // If we have a MainLayoutController, load initial page
+        try {
+            Object controller = mainLoader.getController();
+            if (controller != null) {
+                try {
+                    controller.getClass().getMethod("loadInitialPage", String.class).invoke(controller, "dashboard");
+                } catch (NoSuchMethodException ignored) {
+                }
+            }
+        } catch (Exception ignored) {}
     }
 
     /**

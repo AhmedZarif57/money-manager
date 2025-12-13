@@ -33,7 +33,7 @@ public class MainLayoutController {
         logoutButton.setOnAction(e -> logout());
     }
 
-    private void loadPage(String pageName) {
+    public void loadPage(String pageName) {
         if (currentPage.equals(pageName)) return;
 
         try {
@@ -46,6 +46,8 @@ public class MainLayoutController {
             currentPage = pageName;
 
             updateActiveButton(pageName);
+            
+            System.out.println("Loaded page: " + pageName);
 
         } catch (IOException e) {
             e.printStackTrace();

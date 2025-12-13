@@ -7,7 +7,8 @@
 <StackPane fx:controller="com.controllers.LoginController"
            xmlns="http://javafx.com/javafx/17"
            xmlns:fx="http://javafx.com/fxml/1"
-           styleClass="login-root">
+           styleClass="login-root"
+           stylesheets="@../css/styles.css">
 
     <VBox alignment="CENTER" spacing="12" maxWidth="400">
         <padding>
@@ -22,9 +23,21 @@
                    promptText="Username"
                    maxWidth="Infinity"/>
 
-        <PasswordField fx:id="passwordField"
+        <StackPane maxWidth="Infinity">
+            <PasswordField fx:id="passwordField"
+                           promptText="Password"
+                           maxWidth="Infinity"/>
+            <TextField fx:id="passwordTextField"
                        promptText="Password"
-                       maxWidth="Infinity"/>
+                       maxWidth="Infinity"
+                       visible="false"
+                       managed="false"/>
+            <Button fx:id="togglePasswordButton"
+                    text="👁"
+                    style="-fx-background-color: transparent; -fx-text-fill: #888888; -fx-cursor: hand; -fx-font-size: 16px;"
+                    StackPane.alignment="CENTER_RIGHT"
+                    translateX="-10"/>
+        </StackPane>
 
         <Label fx:id="createAccountLabel"
                text="Create an account"

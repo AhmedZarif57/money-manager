@@ -2,8 +2,8 @@
    GLOBAL VARIABLES & TYPOGRAPHY
    ================================================================= */
 .root {
-    /* Use Montserrat as primary font, with fallbacks */
-    -fx-font-family: 'Montserrat', 'Segoe UI', sans-serif;
+    /* Use Roboto as primary font, with fallbacks */
+    -fx-font-family: 'Roboto', 'Segoe UI', sans-serif;
     -fx-font-size: 14px;
     -fx-background-color: #1C1C1C;
 }
@@ -36,8 +36,7 @@
 }
 
 /* Input Fields */
-.text-field, .password-field, .combo-box, .date-picker {
-    -fx-background-color: #262626;
+.text-field, .password-field, .combo-box, .date-picker {    -fx-background-color: #262626;
     -fx-background-radius: 8px;
     -fx-border-color: #3A3A3A;
     -fx-border-radius: 8px;
@@ -48,9 +47,76 @@
     -fx-prompt-text-fill: #A0A0A0;
 }
 
+/* Date Picker Specific Styling */
+.date-picker .arrow-button {
+    -fx-background-color: #FF6B35;
+    -fx-background-radius: 0 8px 8px 0;
+}
+
+.date-picker .arrow-button .arrow {
+    -fx-background-color: #FFFFFF;
+}
+
+.date-picker-popup {
+    -fx-background-color: #262626;
+    -fx-border-color: #3A3A3A;
+    -fx-border-width: 1px;
+    -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.5), 15, 0, 0, 5);
+}
+
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #FF6B35;
+}
+
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 14px;
+}
+
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: #A0A0A0;
+}
+
+.date-picker-popup .day-cell {
+    -fx-background-color: #3A3A3A;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .day-cell:hover {
+    -fx-background-color: #4A4A4A;
+}
+
+.date-picker-popup .selected {
+    -fx-background-color: #FF6B35;
+    -fx-text-fill: #FFFFFF;
+}
+
+.date-picker-popup .today {
+    -fx-background-color: #3A3A3A;
+    -fx-text-fill: #FF6B35;
+    -fx-font-weight: bold;
+}
+
+.date-picker-popup .day-name-cell {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-weight: bold;
+    -fx-font-size: 12px;
+}
+
+.date-picker-popup .previous-month,
+.date-picker-popup .next-month {
+    -fx-text-fill: #666666;
+}
+
 .text-field:focused, .password-field:focused {
     -fx-border-color: #FF6B35;
     -fx-effect: dropshadow(gaussian, rgba(255,107,53,0.3), 10, 0, 0, 0);
+}
+
+.combo-box {
+    -fx-background-color: #262626;
 }
 
 .combo-box .list-view {
@@ -65,6 +131,24 @@
 
 .combo-box .list-cell:filled:hover {
     -fx-background-color: #383838;
+}
+
+.combo-box-base {
+    -fx-background-color: #262626;
+    -fx-border-color: #3A3A3A;
+    -fx-border-radius: 8px;
+}
+
+.combo-box-base .text {
+    -fx-fill: #FFFFFF;
+}
+
+.combo-box-base .arrow-button {
+    -fx-background-color: transparent;
+}
+
+.combo-box-base .arrow {
+    -fx-background-color: #FFFFFF;
 }
 
 
@@ -160,6 +244,15 @@
     -fx-background-color: #262626;
     -fx-background-radius: 12px;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 15, 0.05, 0, 0);
+    -fx-cursor: hand;
+    -fx-transition: all 0.3s ease;
+}
+
+.glass-card:hover {
+    -fx-background-color: #2E2E2E;
+    -fx-effect: dropshadow(gaussian, rgba(255, 107, 53, 0.4), 20, 0.1, 0, 2);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
 }
 
 /* Dashboard section titles (Your Assets, Latest Transactions) */
@@ -212,6 +305,70 @@
 }
 
 .login-btn:hover, .add-btn:hover, .save-btn:hover {
+    -fx-background-color: #E55A2B;
+}
+
+/* Secondary Button */
+.secondary-btn {
+    -fx-background-color: linear-gradient(to bottom, #555555, #333333);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.4), 8, 0.3, 0, 2);
+}
+
+.secondary-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #666666, #444444);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+}
+
+/* Danger Button */
+.danger-btn {
+    -fx-background-color: linear-gradient(to bottom, #dc3545, #c82333);
+    -fx-text-fill: white;
+    -fx-font-size: 14px;
+    -fx-font-weight: bold;
+    -fx-padding: 12 24;
+    -fx-background-radius: 8;
+    -fx-cursor: hand;
+    -fx-effect: dropshadow(gaussian, rgba(220, 53, 69, 0.4), 8, 0.3, 0, 2);
+}
+
+.danger-btn:hover {
+    -fx-background-color: linear-gradient(to bottom, #e04555, #d32f3f);
+    -fx-scale-x: 1.02;
+    -fx-scale-y: 1.02;
+    -fx-effect: dropshadow(gaussian, rgba(220, 53, 69, 0.6), 12, 0.4, 0, 2);
+}
+
+/* Toggle Button */
+.toggle-btn {
+    -fx-background-color: #3A3A3A;
+    -fx-background-radius: 8px;
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 13px;
+    -fx-font-weight: 600;
+    -fx-padding: 10 20;
+    -fx-cursor: hand;
+    -fx-border-color: transparent;
+    -fx-border-radius: 8px;
+}
+
+.toggle-btn:hover {
+    -fx-background-color: #4A4A4A;
+}
+
+.toggle-btn:selected {
+    -fx-background-color: #FF6B35;
+    -fx-border-color: #FF6B35;
+    -fx-text-fill: #FFFFFF;
+}
+
+.toggle-btn:selected:hover {
     -fx-background-color: #E55A2B;
 }
 
@@ -427,4 +584,48 @@
 VBox.content-root {
     -fx-pref-width: 100%;
     -fx-pref-height: 100%;
+}
+
+/* =================================================================
+   12. DIALOG STYLING
+   ================================================================= */
+.dialog-pane {
+    -fx-background-color: #1C1C1C;
+    -fx-border-color: #3A3A3A;
+    -fx-border-width: 1px;
+}
+
+.dialog-pane .label {
+    -fx-text-fill: #FFFFFF;
+}
+
+.dialog-pane .button {
+    -fx-background-color: #FF6B35;
+    -fx-text-fill: #FFFFFF;
+    -fx-background-radius: 8px;
+    -fx-padding: 8 20;
+    -fx-font-weight: bold;
+    -fx-cursor: hand;
+}
+
+.dialog-pane .button:hover {
+    -fx-background-color: #E85A2A;
+}
+
+.dialog-pane > .header-panel {
+    -fx-background-color: #262626;
+}
+
+.dialog-pane > .header-panel > .label {
+    -fx-text-fill: #FFFFFF;
+    -fx-font-size: 16px;
+    -fx-font-weight: bold;
+}
+
+.dialog-pane .text-field,
+.dialog-pane .combo-box,
+.dialog-pane .date-picker {
+    -fx-background-color: #262626;
+    -fx-text-fill: #FFFFFF;
+    -fx-prompt-text-fill: #A0A0A0;
 }

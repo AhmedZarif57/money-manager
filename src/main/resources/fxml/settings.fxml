@@ -7,9 +7,11 @@
 
 <AnchorPane xmlns="http://javafx.com/javafx/16"
             xmlns:fx="http://javafx.com/fxml/1"
+            fx:controller="com.controllers.SettingsController"
             fx:id="settingRoot"
             prefWidth="1000" prefHeight="700"
-            styleClass="setting-root">
+            styleClass="setting-root"
+            stylesheets="@../css/styles.css">
 
     <VBox spacing="20" layoutX="20" layoutY="20" prefWidth="960">
 
@@ -29,6 +31,10 @@
                 <ComboBox fx:id="cmbTheme" prefWidth="150"/>
             </HBox>
             <HBox spacing="15" alignment="CENTER_LEFT">
+                <Label text="Month:" styleClass="setting-label"/>
+                <ComboBox fx:id="cmbMonth" prefWidth="150"/>
+            </HBox>
+            <HBox spacing="15" alignment="CENTER_LEFT">
                 <Label text="Notifications:" styleClass="setting-label"/>
                 <CheckBox fx:id="chkNotifications"/>
             </HBox>
@@ -36,7 +42,13 @@
 
         <Pane VBox.vgrow="ALWAYS"/>
 
-        <Button fx:id="btnSaveSettings" text="Save Settings" styleClass="save-btn"/>
+        <Button fx:id="btnSaveSettings" text="Save Settings" styleClass="save-btn" onAction="#saveSettings"/>
+        
+        <HBox spacing="10" style="-fx-padding: 20 0 0 0;">
+            <Button text="Change Password" styleClass="secondary-btn" onAction="#changePassword" prefWidth="200"/>
+            <Button text="Reset Data" styleClass="danger-btn" onAction="#resetData" prefWidth="200"/>
+            <Button text="Delete Account" styleClass="danger-btn" onAction="#deleteAccount" prefWidth="200"/>
+        </HBox>
 
     </VBox>
 

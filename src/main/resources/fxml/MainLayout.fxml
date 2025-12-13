@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
+<?import javafx.scene.image.*?>
 
 <BorderPane xmlns="http://javafx.com/javafx/17"
             xmlns:fx="http://javafx.com/fxml/1"
@@ -16,7 +17,13 @@
                 <Insets top="20" right="16" bottom="20" left="16"/>
             </padding>
 
-            <Label text="Money Manager" styleClass="sidebar-title"/>
+            <HBox styleClass="logo-container" alignment="CENTER">
+                <ImageView styleClass="logo-image" preserveRatio="true" fitWidth="65" fitHeight="65">
+                    <image>
+                        <javafx.scene.image.Image url="@../images/Logo.png"/>
+                    </image>
+                </ImageView>
+            </HBox>
 
             <VBox spacing="6">
                 <Button fx:id="dashboardButton" text="Dashboard"

@@ -4,6 +4,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import java.util.prefs.Preferences;
 
 public class NavigationManager {
 
@@ -40,6 +41,9 @@ public class NavigationManager {
                     Parent mainRoot = mainLoader.load();
                     mainController = mainLoader.getController();
                     Scene mainScene = new Scene(mainRoot, currentWidth, currentHeight);
+                    
+                    // Apply saved theme preference
+                    applySavedTheme(mainScene);
                     
                     // Store controller in root's userData immediately
                     mainRoot.setUserData(mainController);
@@ -84,6 +88,34 @@ public class NavigationManager {
         } catch (Exception e) {
             e.printStackTrace();
             System.out.println("Failed to load: " + fxmlName);
+        }
+    }
+    
+    // Apply the saved theme preference when loading MainLayout after login
+    private static void applySavedTheme(Scene scene) {
+        try {
+            Preferences prefs = Preferences.userNodeForPackage(com.controllers.SettingsController.class);
+            String savedTheme = prefs.get("theme", "Dark");
+            
+            String baseStyles = NavigationManager.class.getResource("/css/styles.css").toExternalForm();
+            String lightTheme = NavigationManager.class.getResource("/css/light-theme.css").toExternalForm();
+            
+            // Always add base dark theme first
+            if (!scene.getStylesheets().contains(baseStyles)) {
+                scene.getStylesheets().add(baseStyles);
+            }
+            
+            // Add light theme if saved preference is Light
+            if ("Light".equalsIgnoreCase(savedTheme)) {
+                if (!scene.getStylesheets().contains(lightTheme)) {
+                    scene.getStylesheets().add(lightTheme);
+                }
+                System.out.println("Applied Light theme from saved preference");
+            } else {
+                System.out.println("Applied Dark theme from saved preference");
+            }
+        } catch (Exception e) {
+            System.err.println("Error applying saved theme: " + e.getMessage());
         }
     }
 }

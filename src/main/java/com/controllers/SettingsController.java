@@ -77,16 +77,6 @@ public class SettingsController {
 
             // Save theme
             String selectedTheme = cmbTheme.getValue();
-            
-            // Check if Light theme is selected
-            if ("Light".equalsIgnoreCase(selectedTheme)) {
-                showAlert("Light Theme Under Development", 
-                    "The Light theme is currently under construction. Please use the Dark theme for now.", 
-                    Alert.AlertType.WARNING);
-                cmbTheme.setValue("Dark");
-                selectedTheme = "Dark";
-            }
-            
             prefs.put("theme", selectedTheme);
 
             // Apply theme immediately

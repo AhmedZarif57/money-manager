@@ -11,16 +11,16 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) throws Exception {
-        // Load Roboto font
+        // Load Montserrat-Bold font
         try {
-            Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/Roboto-Regular.ttf"), 14);
+            Font font = Font.loadFont(getClass().getResourceAsStream("/fonts/Montserrat-Bold.ttf"), 14);
             if (font != null) {
-                System.out.println("Roboto font loaded successfully from: /fonts/Roboto-Regular.ttf");
+                System.out.println("Montserrat-Bold font loaded successfully from: /fonts/Montserrat-Bold.ttf");
             } else {
-                System.out.println("Roboto font could not be loaded. Using system fallback.");
+                System.out.println("Montserrat-Bold font could not be loaded. Using system fallback.");
             }
         } catch (Exception e) {
-            System.err.println("Error loading Roboto font: " + e.getMessage());
+            System.err.println("Error loading Montserrat-Bold font: " + e.getMessage());
             System.out.println("Using system fallback font.");
         }
 
